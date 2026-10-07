@@ -1,0 +1,908 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="3600" viewBox="0 0 1600 3600" style="display:block;width:100%;height:auto" role="img" aria-labelledby="drawing-title drawing-description">
+	<title id="drawing-title">Cat flap gate - mechanical variants</title>
+	<desc id="drawing-description">Four concept sheets share a dimensioned front, top and side-view baseline. Variant 1 has separate actuation, sensing, and support/linkage layers; the third sheet shows the PCB mount and component keep-outs; the fourth places sensors relative to the PCB.</desc>
+	<style>
+		.part { cursor: pointer; outline: none; }
+		.hover-target { cursor: pointer; outline: none; }
+		.hover-hit { fill: #000000; fill-opacity: 0; pointer-events: all; }
+		.hover-outline { fill: none; stroke: transparent; stroke-width: 0; transition: stroke 140ms ease, stroke-width 140ms ease; }
+		.hover-target:hover .hover-outline,
+		.hover-target:focus .hover-outline { stroke: #c36b3f; stroke-width: 3; }
+		.hover-label { opacity: 0; fill: #263633; font-family: "Segoe UI", sans-serif; font-size: 11px; font-weight: 700; pointer-events: none; transition: opacity 140ms ease; }
+		.hover-label.light { fill: #f4f3eb; }
+		.hover-target:hover .hover-label,
+		.hover-target:focus .hover-label { opacity: 1; }
+		.label { font-family: "Segoe UI", sans-serif; fill: #263633; }
+		.quiet { fill: #71807a; }
+		.dimension { fill: none; stroke: #000000; stroke-width: 1.5; }
+		.extension { fill: none; stroke: #000000; stroke-width: 1; stroke-dasharray: 1 3; stroke-linecap: round; }
+		.dimensions { fill: #000000; }
+	</style>
+
+	<defs>
+		<symbol id="gate-baseline" viewBox="0 0 1600 900">
+			<g id="front-frame-geometry" class="part" data-layer="frame" tabindex="0" role="group" aria-label="Outer gate frame">
+				<title>Outer gate frame</title>
+				<path class="highlight" d="M220 220H670V670H220Z M280 280H610V610H280Z"
+					fill="#354943" fill-rule="evenodd" />
+			</g>
+
+			<g id="flap-panel-geometry" class="part" data-layer="flap" tabindex="0" role="group" aria-label="Flap panel, 161 by 161 millimetres">
+				<title>Flap panel</title>
+				<rect class="highlight" x="284" y="284" width="322" height="322" fill="#d8dfd5"
+					stroke="#71807a" stroke-width="2" />
+			</g>
+
+			<g class="label" font-size="11">
+				<text x="445" y="150" text-anchor="middle" font-size="12" font-weight="700">FRONT VIEW</text>
+				<text x="1030" y="150" text-anchor="middle" font-size="12" font-weight="700">TOP VIEW</text>
+				<text x="1370" y="150" text-anchor="middle" font-size="12" font-weight="700">SIDE VIEW</text>
+			</g>
+			<g id="tunnel-top-view-geometry" class="part" data-layer="tunnel" tabindex="0" role="group" aria-label="Top-down tunnel view, narrower than the frame, with 165 millimetre clear passage and continuation break">
+				<title>Top-down tunnel view with continuation break</title>
+				<path class="highlight" d="M940 220H1000V670H940Z M940 280H1000V610H940Z"
+					fill="#354943" fill-rule="evenodd" />
+				<path class="highlight" d="M1000 260H1120V280H1000Z M1000 610H1120V630H1000Z"
+					fill="#354943" />
+				<path d="M1048 258L1058 278 M1064 258L1074 278 M1048 612L1058 632 M1064 612L1074 632"
+					fill="none" stroke="#000000" stroke-width="2" />
+			</g>
+			<g id="gate-plane-geometry" class="part" data-layer="gate" tabindex="0" role="group" aria-label="Gate plane centered within the front frame">
+				<title>Gate plane centered within the front frame</title>
+				<rect class="highlight" x="966" y="280" width="8" height="330" fill="#263633" />
+			</g>
+
+			<!-- Side view = vertical section through the centre; tunnel height assumed equal to its width. -->
+			<g id="tunnel-side-view-geometry" class="part" data-layer="tunnel" tabindex="0" role="group" aria-label="Side section of frame and tunnel with continuation break">
+				<title>Side section of frame and tunnel with continuation break</title>
+				<path class="highlight" d="M1280 220H1340V670H1280Z M1280 280H1340V610H1280Z"
+					fill="#354943" fill-rule="evenodd" />
+				<path class="highlight" d="M1340 260H1460V280H1340Z M1340 610H1460V630H1340Z"
+					fill="#354943" />
+				<path d="M1388 258L1398 278 M1404 258L1414 278 M1388 612L1398 632 M1404 612L1414 632"
+					fill="none" stroke="#000000" stroke-width="2" />
+			</g>
+			<g id="gate-side-view-geometry" class="part" data-layer="gate" tabindex="0" role="group" aria-label="Gate plane seen from the side">
+				<title>Gate plane seen from the side</title>
+				<rect class="highlight" x="1306" y="280" width="8" height="330" fill="#263633" />
+			</g>
+		</symbol>
+
+		<symbol id="gate-baseline-dimensions" viewBox="0 0 1600 900">
+			<g id="front-dimensions" class="dimensions label" data-layer="dimensions" font-size="11" font-weight="600" pointer-events="none">
+				<path class="extension" d="M220 195V220 M670 195V220" />
+				<path class="dimension" d="M220 195H670 M220 189V201 M670 189V201" />
+				<rect x="383" y="183" width="124" height="20" fill="#f4f3eb" />
+				<text x="445" y="197" text-anchor="middle">Frame W: 225 mm</text>
+
+				<path class="extension" d="M165 220H220 M165 670H220" />
+				<path class="dimension" d="M165 220V670 M159 220H171 M159 670H171" />
+				<text x="149" y="445" text-anchor="middle" transform="rotate(-90 149 445)">Frame H: 225 mm</text>
+
+				<path class="extension" d="M205 220H220 M205 280H280" />
+				<path class="dimension" d="M205 220V280 M199 220H211 M199 280H211" />
+				<text x="191" y="250" text-anchor="middle" transform="rotate(-90 191 250)">30 mm</text>
+
+				<path class="dimension" d="M445 280V284 M439 280H451 M439 284H451" />
+				<rect x="410" y="260" width="70" height="18" fill="#f4f3eb" />
+				<text x="445" y="273" text-anchor="middle" font-size="9">2 mm / side</text>
+
+				<path class="extension" d="M284 606V710 M606 606V710" />
+				<path class="dimension" d="M284 710H606 M284 704V716 M606 704V716" />
+				<rect x="390" y="700" width="110" height="20" fill="#f4f3eb" />
+				<text x="445" y="714" text-anchor="middle">Flap W: 161 mm</text>
+
+				<path class="extension" d="M606 284H710 M606 606H710" />
+				<path class="dimension" d="M710 284V606 M704 284H716 M704 606H716" />
+				<text x="726" y="445" text-anchor="middle" transform="rotate(-90 726 445)">Flap H: 161 mm</text>
+			</g>
+
+			<g id="top-dimensions" class="dimensions label" data-layer="dimensions" font-size="11" font-weight="600" pointer-events="none">
+				<path class="extension" d="M940 670V720 M1000 670V720" />
+				<path class="dimension" d="M940 720H1000 M940 714V726 M1000 714V726" />
+				<rect x="949" y="708" width="42" height="20" fill="#f4f3eb" />
+				<text x="970" y="722" text-anchor="middle">30 mm</text>
+
+				<path class="extension" d="M1120 280H1160 M1120 610H1160" />
+				<path class="dimension" d="M1160 280V610 M1154 280H1166 M1154 610H1166" />
+				<text x="1180" y="445" text-anchor="middle" transform="rotate(-90 1180 445)">165 mm clear width</text>
+				<path class="dimension" d="M966 282H974 M966 276V288 M974 276V288" />
+				<rect x="980" y="289" width="52" height="18" fill="#f4f3eb" />
+				<text x="984" y="302">4 mm thick</text>
+			</g>
+
+			<g id="side-dimensions" class="dimensions label" data-layer="dimensions" font-size="11" font-weight="600" pointer-events="none">
+				<path class="extension" d="M1280 670V720 M1340 670V720" />
+				<path class="dimension" d="M1280 720H1340 M1280 714V726 M1340 714V726" />
+				<rect x="1289" y="708" width="42" height="20" fill="#f4f3eb" />
+				<text x="1310" y="722" text-anchor="middle">30 mm</text>
+
+				<path class="extension" d="M1460 280H1500 M1460 610H1500" />
+				<path class="dimension" d="M1500 280V610 M1494 280H1506 M1494 610H1506" />
+				<text x="1520" y="445" text-anchor="middle" transform="rotate(-90 1520 445)">165 mm clear height (assumed)</text>
+				<path class="dimension" d="M1306 282H1314 M1306 276V288 M1314 276V288" />
+				<rect x="1320" y="289" width="52" height="18" fill="#f4f3eb" />
+				<text x="1324" y="302">4 mm thick</text>
+			</g>
+		</symbol>
+
+		<!-- HS-0530B front view at 2 px/mm, rod down, origin at extended rod tip; ref: reference/hs-0530b_solenoid.jpg.
+		     58.2 mm retracted + 10 mm stroke = 68.2 mm extended. Cap ~5 mm and rod dia ~5 mm estimated from photo. -->
+		<g id="hs0530b-front">
+			<rect x="-15" y="-126.4" width="30" height="60" fill="#9aa1a3" stroke="#4d5557" stroke-width="1.5" />
+			<rect x="-11" y="-121.4" width="22" height="50" fill="#2f6db5" />
+			<rect x="-5" y="-126.4" width="10" height="126.4" fill="#d3d8da" stroke="#5f686b" stroke-width="1" />
+			<circle cx="0" cy="-6" r="1.8" fill="#5f686b" />
+			<rect x="-8" y="-136.4" width="16" height="10" rx="3" fill="#b8bec0" stroke="#5f686b" stroke-width="1" />
+			<path d="M-10 -20H10" stroke="#c36b3f" stroke-width="1.5" stroke-dasharray="3 2" />
+		</g>
+
+		<!-- HS-0530B seen from above (cap end), centred origin: 13.4 mm deep (x) by 15 mm wide (y). -->
+		<g id="hs0530b-top">
+			<rect x="-13.4" y="-15" width="26.8" height="30" fill="#9aa1a3" stroke="#4d5557" stroke-width="1.5" />
+			<rect x="-10" y="-11" width="20" height="22" fill="#2f6db5" />
+			<circle r="8" fill="#b8bec0" stroke="#5f686b" stroke-width="1" />
+		</g>
+
+		<!-- HS-0530B side view, same origin as front view: 13.4 mm deep (x). -->
+		<g id="hs0530b-side">
+			<rect x="-13.4" y="-126.4" width="26.8" height="60" fill="#9aa1a3" stroke="#4d5557" stroke-width="1.5" />
+			<rect x="-9.4" y="-121.4" width="18.8" height="50" fill="#2f6db5" />
+			<rect x="-5" y="-126.4" width="10" height="126.4" fill="#d3d8da" stroke="#5f686b" stroke-width="1" />
+			<circle cx="0" cy="-6" r="1.8" fill="#5f686b" />
+			<rect x="-8" y="-136.4" width="16" height="10" rx="3" fill="#b8bec0" stroke="#5f686b" stroke-width="1" />
+			<path d="M-10 -20H10" stroke="#c36b3f" stroke-width="1.5" stroke-dasharray="3 2" />
+		</g>
+
+		<!-- Spring 0.4 x 5 x 20 mm (13 coils) from the assortment, drawn at its 16.5 mm installed length; origin at top centre. -->
+		<path id="spring-04x5" fill="none" stroke-width="0.8" stroke-linejoin="round"
+			d="M-5 0l10 1.269l-10 1.269l10 1.269l-10 1.269l10 1.269l-10 1.269l10 1.269l-10 1.269l10 1.269l-10 1.269l10 1.269l-10 1.269l10 1.269l-10 1.269l10 1.269l-10 1.269l10 1.269l-10 1.269l10 1.269l-10 1.269l10 1.269l-10 1.269l10 1.269l-10 1.269l10 1.269l-10 1.269" />
+		<pattern id="keepout-hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+			<path d="M0 0V5" stroke="#b03a2e" stroke-width="1.4" />
+		</pattern>
+	</defs>
+
+	<rect width="1600" height="900" fill="#f4f3eb" />
+	<g class="label">
+		<text x="80" y="70" font-size="16" font-weight="700" letter-spacing="1.5">CAT FLAP: BASELINE GEOMETRY</text>
+	</g>
+	<use id="baseline-instance" href="#gate-baseline" x="0" y="0" width="1600" height="900" />
+	<use id="baseline-dimensions" href="#gate-baseline-dimensions" x="0" y="0" width="1600" height="900" />
+	<g class="hover-target" tabindex="0" role="group" aria-label="Frame">
+		<title>Frame</title>
+		<path class="hover-hit" d="M220 220H670V670H220Z M280 280H610V610H280Z" fill-rule="evenodd" />
+		<path class="hover-outline" d="M220 220H670V670H220Z M280 280H610V610H280Z" fill-rule="evenodd" />
+		<text class="hover-label light" x="445" y="245" text-anchor="middle">FRAME</text>
+	</g>
+	<g class="hover-target" tabindex="0" role="group" aria-label="Flap">
+		<title>Flap</title>
+		<rect class="hover-hit" x="284" y="284" width="322" height="322" />
+		<rect class="hover-outline" x="284" y="284" width="322" height="322" />
+		<text class="hover-label" x="445" y="322" text-anchor="middle">FLAP</text>
+	</g>
+	<g class="hover-target" tabindex="0" role="group" aria-label="Top-view frame entrance">
+		<title>Frame entrance</title>
+		<path class="hover-hit" d="M940 220H1000V670H940Z M940 280H1000V610H940Z" fill-rule="evenodd" />
+		<path class="hover-outline" d="M940 220H1000V670H940Z M940 280H1000V610H940Z" fill-rule="evenodd" />
+		<text class="hover-label light" x="970" y="245" text-anchor="middle">FRAME</text>
+	</g>
+	<g class="hover-target" tabindex="0" role="group" aria-label="Tunnel">
+		<title>Tunnel</title>
+		<path class="hover-hit" d="M1000 260H1120V280H1000Z M1000 610H1120V630H1000Z" />
+		<path class="hover-outline" d="M1000 260H1120V280H1000Z M1000 610H1120V630H1000Z" />
+		<text class="hover-label" x="1058" y="250" text-anchor="middle">TUNNEL</text>
+	</g>
+	<g class="hover-target" tabindex="0" role="group" aria-label="Gate">
+		<title>Gate</title>
+		<rect class="hover-hit" x="966" y="280" width="8" height="330" />
+		<rect class="hover-outline" x="966" y="280" width="8" height="330" />
+		<text class="hover-label" x="982" y="445">GATE</text>
+	</g>
+	<g class="hover-target" tabindex="0" role="group" aria-label="Side-view frame">
+		<title>Frame (side)</title>
+		<path class="hover-hit" d="M1280 220H1340V670H1280Z M1280 280H1340V610H1280Z" fill-rule="evenodd" />
+		<path class="hover-outline" d="M1280 220H1340V670H1280Z M1280 280H1340V610H1280Z" fill-rule="evenodd" />
+		<text class="hover-label light" x="1310" y="245" text-anchor="middle">FRAME</text>
+	</g>
+	<g class="hover-target" tabindex="0" role="group" aria-label="Side-view tunnel">
+		<title>Tunnel (side)</title>
+		<path class="hover-hit" d="M1340 260H1460V280H1340Z M1340 610H1460V630H1340Z" />
+		<path class="hover-outline" d="M1340 260H1460V280H1340Z M1340 610H1460V630H1340Z" />
+		<text class="hover-label" x="1398" y="250" text-anchor="middle">TUNNEL</text>
+	</g>
+	<g class="hover-target" tabindex="0" role="group" aria-label="Side-view gate">
+		<title>Gate (side)</title>
+		<rect class="hover-hit" x="1306" y="280" width="8" height="330" />
+		<rect class="hover-outline" x="1306" y="280" width="8" height="330" />
+		<text class="hover-label" x="1322" y="445">GATE</text>
+	</g>
+
+	<path d="M80 900H1520" stroke="#c7ccc3" stroke-width="1" />
+
+	<g transform="translate(0 900)">
+		<rect width="1600" height="900" fill="#f4f3eb" />
+		<g class="label">
+			<text x="80" y="70" font-size="16" font-weight="700" letter-spacing="1.5">CAT FLAP: ACTUATORS</text>
+		</g>
+		<use id="variant-1-baseline" href="#gate-baseline" x="0" y="0" width="1600" height="900" />
+		<g class="hover-target" tabindex="0" role="group" aria-label="Frame">
+			<title>Frame</title>
+			<path class="hover-hit" d="M220 220H670V670H220Z M280 280H610V610H280Z" fill-rule="evenodd" />
+			<path class="hover-outline" d="M220 220H670V670H220Z M280 280H610V610H280Z" fill-rule="evenodd" />
+			<text class="hover-label light" x="445" y="245" text-anchor="middle">FRAME</text>
+		</g>
+		<g class="hover-target" tabindex="0" role="group" aria-label="Flap">
+			<title>Flap</title>
+			<rect class="hover-hit" x="284" y="284" width="322" height="322" />
+			<rect class="hover-outline" x="284" y="284" width="322" height="322" />
+			<text class="hover-label" x="445" y="322" text-anchor="middle">FLAP</text>
+		</g>
+		<g class="hover-target" tabindex="0" role="group" aria-label="Top-view frame entrance">
+			<title>Frame entrance</title>
+			<path class="hover-hit" d="M940 220H1000V670H940Z M940 280H1000V610H940Z" fill-rule="evenodd" />
+			<path class="hover-outline" d="M940 220H1000V670H940Z M940 280H1000V610H940Z" fill-rule="evenodd" />
+			<text class="hover-label light" x="970" y="245" text-anchor="middle">FRAME</text>
+		</g>
+		<g class="hover-target" tabindex="0" role="group" aria-label="Tunnel">
+			<title>Tunnel</title>
+			<path class="hover-hit" d="M1000 260H1120V280H1000Z M1000 610H1120V630H1000Z" />
+			<path class="hover-outline" d="M1000 260H1120V280H1000Z M1000 610H1120V630H1000Z" />
+			<text class="hover-label" x="1058" y="250" text-anchor="middle">TUNNEL</text>
+		</g>
+		<g class="hover-target" tabindex="0" role="group" aria-label="Gate">
+			<title>Gate</title>
+			<rect class="hover-hit" x="966" y="280" width="8" height="330" />
+			<rect class="hover-outline" x="966" y="280" width="8" height="330" />
+			<text class="hover-label" x="982" y="445">GATE</text>
+		</g>
+		<g class="hover-target" tabindex="0" role="group" aria-label="Side-view frame">
+			<title>Frame (side)</title>
+			<path class="hover-hit" d="M1280 220H1340V670H1280Z M1280 280H1340V610H1280Z" fill-rule="evenodd" />
+			<path class="hover-outline" d="M1280 220H1340V670H1280Z M1280 280H1340V610H1280Z" fill-rule="evenodd" />
+			<text class="hover-label light" x="1310" y="245" text-anchor="middle">FRAME</text>
+		</g>
+		<g class="hover-target" tabindex="0" role="group" aria-label="Side-view tunnel">
+			<title>Tunnel (side)</title>
+			<path class="hover-hit" d="M1340 260H1460V280H1340Z M1340 610H1460V630H1340Z" />
+			<path class="hover-outline" d="M1340 260H1460V280H1340Z M1340 610H1460V630H1340Z" />
+			<text class="hover-label" x="1398" y="250" text-anchor="middle">TUNNEL</text>
+		</g>
+		<g class="hover-target" tabindex="0" role="group" aria-label="Side-view gate">
+			<title>Gate (side)</title>
+			<rect class="hover-hit" x="1306" y="280" width="8" height="330" />
+			<rect class="hover-outline" x="1306" y="280" width="8" height="330" />
+			<text class="hover-label" x="1322" y="445">GATE</text>
+		</g>
+		<g id="variant-1-layers" data-variant="1" aria-label="Variant 1 hardware layers">
+			<g id="variant-1-actuation" data-layer="actuation" aria-label="Actuation layer">
+				<!-- Centred in the 30 mm side rails, pulling rod down, extended tip 12 mm above frame bottom edge. -->
+				<use id="solenoid-left" href="#hs0530b-front" transform="translate(250 646)" />
+				<use id="solenoid-right" href="#hs0530b-front" transform="translate(640 646)" />
+
+				<g class="hover-target" tabindex="0" role="group" aria-label="Left HS-0530B solenoid">
+					<title>HS-0530B solenoid (left)</title>
+					<rect class="hover-hit" x="235" y="509.6" width="30" height="136.4" />
+					<rect class="hover-outline" x="235" y="509.6" width="30" height="136.4" />
+					<text class="hover-label light" x="250" y="500" text-anchor="middle">SOLENOID</text>
+				</g>
+				<g class="hover-target" tabindex="0" role="group" aria-label="Right HS-0530B solenoid">
+					<title>HS-0530B solenoid (right)</title>
+					<rect class="hover-hit" x="625" y="509.6" width="30" height="136.4" />
+					<rect class="hover-outline" x="625" y="509.6" width="30" height="136.4" />
+					<text class="hover-label light" x="640" y="500" text-anchor="middle">SOLENOID</text>
+				</g>
+
+				<g class="dimensions label" font-size="10" font-weight="600" pointer-events="none">
+					<path class="extension" d="M89 509.6H220 M199 519.6H220 M199 579.6H220 M119 626H220 M89 646H220" />
+					<path class="dimension" d="M205 509.6V646 M199 509.6H211 M199 519.6H211 M199 579.6H211 M199 626H211 M199 646H211" />
+					<text x="197" y="506" text-anchor="end">cap ≈5 mm</text>
+					<text x="197" y="553.6" text-anchor="end">body 30 mm</text>
+					<text x="197" y="606.8" text-anchor="end">rod ≈23.2 mm</text>
+					<text x="197" y="640" text-anchor="end">stroke 10 mm</text>
+
+					<path class="dimension" d="M125 509.6V626 M119 509.6H131 M119 626H131" />
+					<text x="117" y="567.8" text-anchor="middle" transform="rotate(-90 117 567.8)">58.2 mm retracted</text>
+
+					<path class="dimension" d="M95 509.6V646 M89 509.6H101 M89 646H101" />
+					<text x="87" y="577.8" text-anchor="middle" transform="rotate(-90 87 577.8)">68.2 mm extended</text>
+
+					<path class="extension" d="M245 670V690 M255 670V690" />
+					<path class="dimension" d="M245 690H255 M245 684V696 M255 684V696" />
+					<text x="262" y="694">Ø≈5 mm rod</text>
+
+					<path class="extension" d="M610 670V696 M625 670V696 M655 670V696 M670 670V696" />
+					<path class="dimension" d="M610 690H670 M610 684V696 M625 684V696 M655 684V696 M670 684V696" />
+					<text x="640" y="706" text-anchor="middle">15 mm</text>
+					<text x="617.5" y="718" text-anchor="middle">7.5</text>
+					<text x="662.5" y="718" text-anchor="middle">7.5</text>
+
+					<path class="extension" d="M670 646H696 M670 670H696" />
+					<path class="dimension" d="M690 646V670 M684 646H696 M684 670H696" />
+					<text x="700" y="662">OFFSET (TBD)</text>
+				</g>
+
+				<!-- Top view: y matches front-view x, so solenoids sit at y=250 and y=640. -->
+				<!-- Linkage parts that sit below the solenoids, drawn first so the solenoids cover them. -->
+				<g id="linkage-top-view-below-solenoids">
+					<g fill="#e3e6e8" stroke="#263633" stroke-width="1" stroke-dasharray="3 2">
+						<rect x="940" y="250" width="40" height="8" />
+						<rect x="960" y="632" width="40" height="8" />
+					</g>
+					<path d="M961 254V443" fill="none" stroke="#e8590c" stroke-width="1.5" />
+					<path d="M979 636V447" fill="none" stroke="#e8590c" stroke-width="1.5" stroke-dasharray="4 2" />
+				</g>
+				<use id="solenoid-left-top" href="#hs0530b-top" transform="translate(961 250)" />
+				<use id="solenoid-right-top" href="#hs0530b-top" transform="translate(979 640)" />
+
+				<g class="hover-target" tabindex="0" role="group" aria-label="Left HS-0530B solenoid, top view">
+					<title>HS-0530B solenoid (left, top view)</title>
+					<rect class="hover-hit" x="947.6" y="235" width="26.8" height="30" />
+					<rect class="hover-outline" x="947.6" y="235" width="26.8" height="30" />
+				</g>
+				<g class="hover-target" tabindex="0" role="group" aria-label="Right HS-0530B solenoid, top view">
+					<title>HS-0530B solenoid (right, top view)</title>
+					<rect class="hover-hit" x="965.6" y="625" width="26.8" height="30" />
+					<rect class="hover-outline" x="965.6" y="625" width="26.8" height="30" />
+				</g>
+
+				<g class="dimensions label" font-size="10" font-weight="600" pointer-events="none">
+					<path class="extension" d="M940 194V220 M947.6 194V220 M974.4 194V220 M1000 194V220" />
+					<path class="dimension" d="M940 200H1000 M940 194V206 M947.6 194V206 M974.4 194V206 M1000 194V206" />
+					<text x="961" y="189" text-anchor="middle">13.4 mm</text>
+					<text x="936" y="204" text-anchor="end">3.8</text>
+					<text x="1004" y="204">12.8</text>
+
+					<path class="extension" d="M914 220H940 M914 235H940 M914 265H940 M914 280H940" />
+					<path class="dimension" d="M920 220V280 M914 220H926 M914 235H926 M914 265H926 M914 280H926" />
+					<text x="910" y="231" text-anchor="end">7.5</text>
+					<text x="910" y="254" text-anchor="end">15 mm</text>
+					<text x="910" y="276" text-anchor="end">7.5</text>
+				</g>
+
+				<!-- Side view: left solenoid on the front line lane, right on the back lane. -->
+				<use id="solenoid-right-side" href="#hs0530b-side" opacity="0.45" transform="translate(1319 646)" />
+				<use id="solenoid-left-side" href="#hs0530b-side" opacity="0.45" transform="translate(1301 646)" />
+
+				<g class="hover-target" tabindex="0" role="group" aria-label="HS-0530B solenoids, side view">
+					<title>HS-0530B solenoids (left and right, side view)</title>
+					<rect class="hover-hit" x="1287.6" y="509.6" width="44.8" height="136.4" />
+					<rect class="hover-outline" x="1287.6" y="509.6" width="44.8" height="136.4" />
+					<text class="hover-label light" x="1310" y="500" text-anchor="middle">SOLENOID</text>
+				</g>
+
+				<g class="dimensions label" font-size="10" font-weight="600" pointer-events="none">
+					<path class="extension" d="M1280 670V696 M1287.6 670V696 M1314.4 670V696 M1332.4 670V696 M1340 670V696" />
+					<path class="dimension" d="M1280 690H1314.4 M1332.4 690H1340 M1280 684V696 M1287.6 684V696 M1314.4 684V696 M1332.4 684V696 M1340 684V696" />
+					<text x="1301" y="708" text-anchor="middle">13.4 mm</text>
+					<text x="1276" y="694" text-anchor="end">3.8</text>
+					<text x="1344" y="694">3.8</text>
+				</g>
+			</g>
+			<g id="variant-1-sensing" data-layer="sensing" aria-label="Sensing layer" />
+			<g id="variant-1-support-linkage" data-layer="support-linkage" aria-label="Support and linkage layer">
+				<!-- Line: rod hole, round guide pin under solenoid, horizontal, round centre guide pin, up to lock pin.
+				     Left unit runs in the front lane (10.5 mm from front face), right unit in the back lane (10.5 mm from back face). -->
+				<g id="linkage-front-view">
+					<!-- Guide bore: 4.4 mm hole in the 1.5 mm top skin, 6.6 mm bore for the 6 mm latch piston, 1.5 mm line hole in the spring floor. -->
+					<path d="M440.6 610H449.4V613H451.6V654H446.5V657H443.5V654H438.4V613H440.6Z" fill="#1f2a27" />
+					<g fill="#e3e6e8" stroke="#263633" stroke-width="1">
+						<circle cx="254" cy="662" r="4" />
+						<circle cx="439" cy="662" r="4" />
+						<circle cx="636" cy="662" r="4" stroke-dasharray="2 1.5" />
+						<circle cx="451" cy="662" r="4" stroke-dasharray="2 1.5" />
+					</g>
+					<rect x="441" y="590" width="8" height="23" fill="#c9cfd2" stroke="#263633" stroke-width="1" />
+					<rect x="439" y="613" width="12" height="8" fill="#c9cfd2" stroke="#263633" stroke-width="1" />
+					<use href="#spring-04x5" transform="translate(445 621)" stroke="#f4f3eb" />
+					<path d="M250 640V662A4 4 0 0 0 254 666H439A4 4 0 0 0 443 662L445 657V621" fill="none" stroke="#e8590c" stroke-width="1.5" />
+					<path d="M640 640V662A4 4 0 0 1 636 666H451A4 4 0 0 1 447 662L445 657V621" fill="none" stroke="#e8590c" stroke-width="1.5" stroke-dasharray="4 2" />
+				</g>
+
+				<g id="linkage-side-view">
+					<path d="M1296.6 610H1305.4V613H1307.6V654H1302.5V657H1299.5V654H1294.4V613H1296.6Z M1314.6 610H1323.4V613H1325.6V654H1320.5V657H1317.5V654H1312.4V613H1314.6Z" fill="#1f2a27" />
+					<rect x="1300" y="658" width="40" height="8" fill="none" stroke="#263633" stroke-width="1" stroke-dasharray="3 2" />
+					<rect x="1280" y="658" width="40" height="8" fill="#e3e6e8" stroke="#263633" stroke-width="1" />
+					<rect x="1297" y="590" width="8" height="23" fill="#c9cfd2" stroke="#263633" stroke-width="1" />
+					<rect x="1315" y="590" width="8" height="23" fill="#c9cfd2" stroke="#263633" stroke-width="1" />
+					<rect x="1295" y="613" width="12" height="8" fill="#c9cfd2" stroke="#263633" stroke-width="1" />
+					<rect x="1313" y="613" width="12" height="8" fill="#c9cfd2" stroke="#263633" stroke-width="1" />
+					<use href="#spring-04x5" transform="translate(1301 621)" stroke="#f4f3eb" />
+					<use href="#spring-04x5" transform="translate(1319 621)" stroke="#f4f3eb" stroke-dasharray="1.5 1" />
+					<path d="M1301 621V666" fill="none" stroke="#e8590c" stroke-width="1.5" />
+					<path d="M1319 621V666" fill="none" stroke="#e8590c" stroke-width="1.5" stroke-dasharray="4 2" />
+				</g>
+
+				<!-- Top view: x = depth (side x - 340), y = front-view x. Parts below the latch heads are hidden, so dashed. -->
+				<g id="linkage-top-view">
+					<g fill="#e3e6e8" stroke="#263633" stroke-width="1" stroke-dasharray="3 2">
+						<rect x="940" y="435" width="40" height="8" />
+						<rect x="960" y="447" width="40" height="8" />
+					</g>
+					<g fill="none" stroke-dasharray="2 1.5">
+						<circle cx="961" cy="445" r="6.6" stroke="#263633" stroke-width="1" />
+						<circle cx="979" cy="445" r="6.6" stroke="#263633" stroke-width="1" />
+						<circle cx="961" cy="445" r="4.6" stroke="#5f686b" stroke-width="0.8" />
+						<circle cx="979" cy="445" r="4.6" stroke="#5f686b" stroke-width="0.8" />
+					</g>
+					<g fill="#c9cfd2" stroke="#263633" stroke-width="1">
+						<circle cx="961" cy="445" r="4" />
+						<circle cx="979" cy="445" r="4" />
+					</g>
+				</g>
+
+				<g class="hover-target" tabindex="0" role="group" aria-label="Guide bore, 6.6 millimetre bore with 4.4 millimetre top hole">
+					<title>Guide bore: constrains the latch to vertical travel</title>
+					<rect class="hover-hit" x="438.4" y="610" width="13.2" height="47" />
+					<rect class="hover-outline" x="438.4" y="610" width="13.2" height="47" />
+					<text class="hover-label light" x="457" y="640">GUIDE BORE</text>
+				</g>
+				<g class="hover-target" tabindex="0" role="group" aria-label="Lock pins, 4 millimetre shaft with 6 millimetre piston, either side of the gate">
+					<title>Lock pins / latches (front and back of gate)</title>
+					<rect class="hover-hit" x="439" y="590" width="12" height="31" />
+					<rect class="hover-outline" x="439" y="590" width="12" height="31" />
+					<text class="hover-label" x="455" y="600">LOCK PINS</text>
+				</g>
+				<g class="hover-target" tabindex="0" role="group" aria-label="Lock pin return springs, 0.4 by 5 by 20 millimetres">
+					<title>Return springs 0.4 x 5 x 20 mm (push lock pins up when unpowered)</title>
+					<rect class="hover-hit" x="440" y="621" width="10" height="33" />
+					<rect class="hover-outline" x="440" y="621" width="10" height="33" />
+				</g>
+				<g class="hover-target" tabindex="0" role="group" aria-label="Guide pins, 4 by 20 millimetres">
+					<title>Guide pins (fishing line 90 degree bends)</title>
+					<path class="hover-hit" d="M250 658h8v8h-8Z M435 658h8v8h-8Z M447 658h8v8h-8Z M632 658h8v8h-8Z" />
+					<path class="hover-outline" d="M250 658h8v8h-8Z M435 658h8v8h-8Z M447 658h8v8h-8Z M632 658h8v8h-8Z" />
+					<text class="hover-label light" x="340" y="652" text-anchor="middle">GUIDE PINS</text>
+				</g>
+
+				<g class="dimensions label" font-size="10" font-weight="600" pointer-events="none">
+					<path class="extension" d="M1280 194V220 M1301 194V220 M1319 194V220 M1340 194V220" />
+					<path class="dimension" d="M1280 200H1340 M1280 194V206 M1301 194V206 M1319 194V206 M1340 194V206" />
+					<text x="1290.5" y="189" text-anchor="middle">10.5</text>
+					<text x="1310" y="189" text-anchor="middle">9</text>
+					<text x="1329.5" y="189" text-anchor="middle">10.5</text>
+					<text x="1310" y="175" text-anchor="middle">latch lines</text>
+
+					<path class="extension" d="M1323 590H1366 M1310 610H1366" />
+					<path class="dimension" d="M1360 590V610 M1354 590H1366 M1354 610H1366" />
+					<text x="1370" y="603">10 mm lock travel</text>
+
+					<path class="extension" d="M1340 662H1366 M1340 670H1366" />
+					<path class="dimension" d="M1360 662V670 M1354 662H1366 M1354 670H1366" />
+					<text x="1370" y="670">4 mm to pin centre</text>
+
+					<path class="extension" d="M1256 621H1294.4 M1256 654H1294.4" />
+					<path class="dimension" d="M1262 621V654 M1256 621H1268 M1256 654H1268" />
+					<text x="1252" y="634" text-anchor="end">spring 0.4&#215;5&#215;20</text>
+					<text x="1252" y="646" text-anchor="end">16.5 &#8594; 6.5 mm</text>
+				</g>
+
+				<!-- Flap pivot: 3 mm rod in two 693ZZ bearings (3 x 8 x 4 mm) seated in the side rails.
+				     Axis 6 mm below the opening top so the 7 mm knuckle clears the top bar by 2.5 mm at +/-90 degrees. -->
+				<g id="flap-pivot">
+					<g id="flap-pivot-front-view">
+						<rect x="284" y="285" width="322" height="14" rx="3" fill="#c5cec2" stroke="#71807a" stroke-width="1" />
+						<rect x="270" y="289" width="350" height="6" fill="#d3d8da" stroke="#5f686b" stroke-width="1" />
+						<path d="M284 289H606 M284 295H606" stroke="#c5cec2" stroke-width="1.5" />
+						<path d="M284 289H606 M284 295H606" stroke="#5f686b" stroke-width="1" stroke-dasharray="3 2" />
+						<g fill="#3a3f41" stroke="#1b1b1b" stroke-width="1">
+							<rect x="272" y="284" width="8" height="16" />
+							<rect x="610" y="284" width="8" height="16" />
+						</g>
+						<path d="M272 289H280 M272 295H280 M610 289H618 M610 295H618" stroke="#9aa1a3" stroke-width="0.8" />
+						<path d="M204 292H806" stroke="#c36b3f" stroke-width="1" stroke-dasharray="10 3 2 3" />
+					</g>
+
+					<g id="flap-pivot-side-view">
+						<path d="M1310 292H1250 M1310 292H1370" stroke="#71807a" stroke-width="1" stroke-dasharray="5 3" />
+						<path d="M1270 292A40 40 0 0 1 1310 332A40 40 0 0 1 1350 292" fill="none" stroke="#71807a" stroke-width="1" stroke-dasharray="2 2" />
+						<circle cx="1310" cy="292" r="8" fill="none" stroke="#3a3f41" stroke-width="1" stroke-dasharray="3 2" />
+						<circle cx="1310" cy="292" r="7" fill="#c5cec2" stroke="#71807a" stroke-width="1" />
+						<circle cx="1310" cy="292" r="3" fill="#d3d8da" stroke="#5f686b" stroke-width="1" />
+						<path d="M1300 292H1320 M1310 282V302" stroke="#c36b3f" stroke-width="0.8" />
+					</g>
+
+					<g id="flap-pivot-top-view" fill="none" stroke-dasharray="3 2">
+						<rect x="967" y="270" width="6" height="350" stroke="#5f686b" stroke-width="1" />
+						<rect x="962" y="272" width="16" height="8" stroke="#1b1b1b" stroke-width="1" />
+						<rect x="962" y="610" width="16" height="8" stroke="#1b1b1b" stroke-width="1" />
+					</g>
+
+					<g class="dimensions label" font-size="10" font-weight="600" pointer-events="none">
+						<path class="extension" d="M270 284V194 M620 284V194" />
+						<path class="dimension" d="M270 200H620 M270 194V206 M620 194V206" />
+						<text x="445" y="194" text-anchor="middle">rod &#216;3 &#215; 175 mm (cut from 300 mm)</text>
+
+						<path class="extension" d="M670 220H806 M670 670H806" />
+						<path class="dimension" d="M800 220V670 M794 220H806 M794 292H806 M794 670H806" />
+						<text x="812" y="259">36 mm</text>
+						<text x="812" y="485">189 mm</text>
+						<text x="812" y="296" fill="#c36b3f">pivot axis</text>
+
+						<path d="M272 294L214 304" fill="none" stroke="#000000" stroke-width="0.8" />
+						<text x="210" y="302" text-anchor="end">693ZZ bearings</text>
+						<text x="210" y="314" text-anchor="end">3 &#215; 8 &#215; 4 mm, both rails</text>
+
+						<path class="extension" d="M1264 280H1280 M1250 292H1264" />
+						<path class="dimension" d="M1266 280V292 M1260 280H1272 M1260 292H1272" />
+						<text x="1256" y="290" text-anchor="end">6</text>
+						<text x="1310" y="350" text-anchor="middle">&#177;90&#176; swing</text>
+						<text x="1310" y="362" text-anchor="middle">knuckle &#216;7, 2.5 mm clear</text>
+					</g>
+
+					<g class="hover-target" tabindex="0" role="group" aria-label="Flap pivot rod, 3 millimetre">
+						<title>Flap pivot rod &#216;3 x 175 mm with knuckle</title>
+						<rect class="hover-hit" x="280" y="285" width="330" height="14" />
+						<rect class="hover-outline" x="280" y="285" width="330" height="14" />
+						<text class="hover-label" x="445" y="312" text-anchor="middle">PIVOT ROD</text>
+					</g>
+					<g class="hover-target" tabindex="0" role="group" aria-label="693ZZ bearings">
+						<title>693ZZ bearings 3 x 8 x 4 mm</title>
+						<path class="hover-hit" d="M272 284h8v16h-8Z M610 284h8v16h-8Z" />
+						<path class="hover-outline" d="M272 284h8v16h-8Z M610 284h8v16h-8Z" />
+					</g>
+				</g>
+			</g>
+		</g>
+	</g>
+
+	<path d="M80 1800H1520" stroke="#c7ccc3" stroke-width="1" />
+
+	<g transform="translate(0 1800)">
+		<rect width="1600" height="900" fill="#f4f3eb" />
+		<g class="label">
+			<text x="80" y="70" font-size="16" font-weight="700" letter-spacing="1.5">CAT FLAP: PCB MOUNT</text>
+		</g>
+		<use id="pcb-sheet-baseline" href="#gate-baseline" x="0" y="0" width="1600" height="900" />
+		<g class="hover-target" tabindex="0" role="group" aria-label="Frame">
+			<title>Frame</title>
+			<path class="hover-hit" d="M220 220H670V670H220Z M280 280H610V610H280Z" fill-rule="evenodd" />
+			<path class="hover-outline" d="M220 220H670V670H220Z M280 280H610V610H280Z" fill-rule="evenodd" />
+			<text class="hover-label light" x="445" y="245" text-anchor="middle">FRAME</text>
+		</g>
+		<g class="hover-target" tabindex="0" role="group" aria-label="Flap">
+			<title>Flap</title>
+			<rect class="hover-hit" x="284" y="284" width="322" height="322" />
+			<rect class="hover-outline" x="284" y="284" width="322" height="322" />
+			<text class="hover-label" x="445" y="322" text-anchor="middle">FLAP</text>
+		</g>
+		<g class="hover-target" tabindex="0" role="group" aria-label="Top-view frame entrance">
+			<title>Frame entrance</title>
+			<path class="hover-hit" d="M940 220H1000V670H940Z M940 280H1000V610H940Z" fill-rule="evenodd" />
+			<path class="hover-outline" d="M940 220H1000V670H940Z M940 280H1000V610H940Z" fill-rule="evenodd" />
+			<text class="hover-label light" x="970" y="245" text-anchor="middle">FRAME</text>
+		</g>
+		<g class="hover-target" tabindex="0" role="group" aria-label="Tunnel">
+			<title>Tunnel</title>
+			<path class="hover-hit" d="M1000 260H1120V280H1000Z M1000 610H1120V630H1000Z" />
+			<path class="hover-outline" d="M1000 260H1120V280H1000Z M1000 610H1120V630H1000Z" />
+			<text class="hover-label" x="1058" y="250" text-anchor="middle">TUNNEL</text>
+		</g>
+		<g class="hover-target" tabindex="0" role="group" aria-label="Gate">
+			<title>Gate</title>
+			<rect class="hover-hit" x="966" y="280" width="8" height="330" />
+			<rect class="hover-outline" x="966" y="280" width="8" height="330" />
+			<text class="hover-label" x="982" y="445">GATE</text>
+		</g>
+		<g class="hover-target" tabindex="0" role="group" aria-label="Side-view frame">
+			<title>Frame (side)</title>
+			<path class="hover-hit" d="M1280 220H1340V670H1280Z M1280 280H1340V610H1280Z" fill-rule="evenodd" />
+			<path class="hover-outline" d="M1280 220H1340V670H1280Z M1280 280H1340V610H1280Z" fill-rule="evenodd" />
+			<text class="hover-label light" x="1310" y="245" text-anchor="middle">FRAME</text>
+		</g>
+		<g class="hover-target" tabindex="0" role="group" aria-label="Side-view tunnel">
+			<title>Tunnel (side)</title>
+			<path class="hover-hit" d="M1340 260H1460V280H1340Z M1340 610H1460V630H1340Z" />
+			<path class="hover-outline" d="M1340 260H1460V280H1340Z M1340 610H1460V630H1340Z" />
+			<text class="hover-label" x="1398" y="250" text-anchor="middle">TUNNEL</text>
+		</g>
+		<g class="hover-target" tabindex="0" role="group" aria-label="Side-view gate">
+			<title>Gate (side)</title>
+			<rect class="hover-hit" x="1306" y="280" width="8" height="330" />
+			<rect class="hover-outline" x="1306" y="280" width="8" height="330" />
+			<text class="hover-label" x="1322" y="445">GATE</text>
+		</g>
+
+		<g id="pcb-mount-layers" aria-label="PCB mount layers">
+			<!-- Board stands upright at mid-depth, spans the inner frame width, and passes between the two latch bores. -->
+			<g id="pcb-mount" data-layer="electronics" aria-label="PCB mount layer">
+				<g id="pcb-front-view">
+					<rect x="280" y="614" width="330" height="42" rx="3" fill="#3f8f5a" stroke="#1e5a36" stroke-width="1" />
+					<g fill="none" stroke="#b6f0c4" stroke-width="1" stroke-dasharray="4 2">
+						<rect x="283" y="617" width="148" height="36" />
+						<rect x="459" y="617" width="148" height="36" />
+					</g>
+					<path d="M440.6 610H449.4V613H451.6V654H446.5V657H443.5V654H438.4V613H440.6Z" fill="#1f2a27" opacity="0.6" />
+					<rect x="434" y="614" width="22" height="42" fill="url(#keepout-hatch)" stroke="#b03a2e" stroke-width="1" />
+					<g class="label" font-size="10" font-weight="700" text-anchor="middle" pointer-events="none">
+						<text x="357" y="632" fill="#f4f3eb">COMPONENTS OK</text>
+						<text x="357" y="645" fill="#f4f3eb" font-weight="600">both sides, &#8804; 12.2 mm tall</text>
+						<text x="533" y="632" fill="#f4f3eb">COMPONENTS OK</text>
+						<text x="533" y="645" fill="#f4f3eb" font-weight="600">both sides, &#8804; 12.2 mm tall</text>
+					</g>
+				</g>
+
+				<g id="pcb-side-view">
+					<g fill="#8fd19e" fill-opacity="0.5" stroke="#3f8f5a" stroke-width="1" stroke-dasharray="4 2">
+						<rect x="1284" y="614" width="24.4" height="42" />
+						<rect x="1311.6" y="614" width="24.4" height="42" />
+					</g>
+					<path d="M1296.6 610H1305.4V613H1307.6V654H1302.5V657H1299.5V654H1294.4V613H1296.6Z M1314.6 610H1323.4V613H1325.6V654H1320.5V657H1317.5V654H1312.4V613H1314.6Z" fill="url(#keepout-hatch)" stroke="#b03a2e" stroke-width="1" />
+					<rect x="1308.4" y="614" width="3.2" height="42" fill="#3f8f5a" stroke="#1e5a36" stroke-width="0.5" />
+				</g>
+
+				<!-- Top view: board is hidden under the gate; component zones either side, keep-out band at the latch bores. -->
+				<g id="pcb-top-view">
+					<g fill="#8fd19e" fill-opacity="0.5" stroke="#3f8f5a" stroke-width="1" stroke-dasharray="4 2">
+						<rect x="944" y="280" width="24.4" height="154" />
+						<rect x="971.6" y="280" width="24.4" height="154" />
+						<rect x="944" y="456" width="24.4" height="154" />
+						<rect x="971.6" y="456" width="24.4" height="154" />
+					</g>
+					<rect x="944" y="434" width="52" height="22" fill="url(#keepout-hatch)" stroke="#b03a2e" stroke-width="1" />
+					<rect x="968.4" y="280" width="3.2" height="330" fill="#3f8f5a" stroke="#1e5a36" stroke-width="0.5" stroke-dasharray="3 2" />
+					<g fill="none" stroke="#263633" stroke-width="1" stroke-dasharray="2 1.5">
+						<circle cx="961" cy="445" r="6.6" />
+						<circle cx="979" cy="445" r="6.6" />
+					</g>
+				</g>
+
+				<g class="dimensions label" font-size="10" font-weight="600" pointer-events="none">
+					<path class="extension" d="M280 670V730 M434 670V696 M456 670V696 M610 670V730" />
+					<path class="dimension" d="M280 690H610 M280 684V696 M434 684V696 M456 684V696 M610 684V696" />
+					<text x="357" y="706" text-anchor="middle">77 mm</text>
+					<text x="445" y="706" text-anchor="middle">11</text>
+					<text x="533" y="706" text-anchor="middle">77 mm</text>
+					<path class="dimension" d="M280 724H610 M280 718V730 M610 718V730" />
+					<text x="445" y="740" text-anchor="middle">PCB 165 mm (inner frame width)</text>
+
+					<path class="extension" d="M610 614H706 M610 656H706" />
+					<path class="dimension" d="M700 614V656 M694 614H706 M694 656H706" />
+					<text x="708" y="639">21 mm</text>
+				</g>
+
+				<g class="label" font-size="11" pointer-events="none">
+					<rect x="80" y="786" width="18" height="12" fill="#8fd19e" fill-opacity="0.5" stroke="#3f8f5a" stroke-dasharray="4 2" />
+					<text x="106" y="796">Components OK (both board faces, max 12.2 mm tall per side)</text>
+					<rect x="80" y="806" width="18" height="12" fill="url(#keepout-hatch)" stroke="#b03a2e" />
+					<text x="106" y="816">Keep-out: latch bores and springs (board passes between them with 0.4 mm per side)</text>
+					<rect x="80" y="826" width="18" height="12" fill="#3f8f5a" stroke="#1e5a36" />
+					<text x="106" y="836">PCB, 1.6 mm standard (0.8&#8211;1.0 mm leaves more wall around the bores)</text>
+				</g>
+
+				<g class="hover-target" tabindex="0" role="group" aria-label="PCB, 165 by 21 millimetres">
+					<title>PCB, 165 x 21 mm, spans the inner frame width</title>
+					<rect class="hover-hit" x="280" y="614" width="330" height="42" rx="3" />
+					<rect class="hover-outline" x="280" y="614" width="330" height="42" rx="3" />
+				</g>
+				<g class="hover-target" tabindex="0" role="group" aria-label="PCB keep-out at the latch bores">
+					<title>Keep-out: no components, board passes between the two latch bores</title>
+					<rect class="hover-hit" x="434" y="614" width="22" height="42" />
+					<rect class="hover-outline" x="434" y="614" width="22" height="42" />
+				</g>
+			</g>
+		</g>
+	</g>
+
+	<path d="M80 2700H1520" stroke="#c7ccc3" stroke-width="1" />
+
+	<g transform="translate(0 2700)">
+		<rect width="1600" height="900" fill="#f4f3eb" />
+		<g class="label">
+			<text x="80" y="70" font-size="16" font-weight="700" letter-spacing="1.5">CAT FLAP: SENSOR PLACEMENT</text>
+		</g>
+		<use id="sensor-sheet-baseline" href="#gate-baseline" x="0" y="0" width="1600" height="900" />
+		<g class="hover-target" tabindex="0" role="group" aria-label="Frame">
+			<title>Frame</title>
+			<path class="hover-hit" d="M220 220H670V670H220Z M280 280H610V610H280Z" fill-rule="evenodd" />
+			<path class="hover-outline" d="M220 220H670V670H220Z M280 280H610V610H280Z" fill-rule="evenodd" />
+			<text class="hover-label light" x="445" y="245" text-anchor="middle">FRAME</text>
+		</g>
+		<g class="hover-target" tabindex="0" role="group" aria-label="Flap">
+			<title>Flap</title>
+			<rect class="hover-hit" x="284" y="284" width="322" height="322" />
+			<rect class="hover-outline" x="284" y="284" width="322" height="322" />
+			<text class="hover-label" x="445" y="322" text-anchor="middle">FLAP</text>
+		</g>
+		<g class="hover-target" tabindex="0" role="group" aria-label="Top-view frame entrance">
+			<title>Frame entrance</title>
+			<path class="hover-hit" d="M940 220H1000V670H940Z M940 280H1000V610H940Z" fill-rule="evenodd" />
+			<path class="hover-outline" d="M940 220H1000V670H940Z M940 280H1000V610H940Z" fill-rule="evenodd" />
+			<text class="hover-label light" x="970" y="245" text-anchor="middle">FRAME</text>
+		</g>
+		<g class="hover-target" tabindex="0" role="group" aria-label="Tunnel">
+			<title>Tunnel</title>
+			<path class="hover-hit" d="M1000 260H1120V280H1000Z M1000 610H1120V630H1000Z" />
+			<path class="hover-outline" d="M1000 260H1120V280H1000Z M1000 610H1120V630H1000Z" />
+			<text class="hover-label" x="1058" y="250" text-anchor="middle">TUNNEL</text>
+		</g>
+		<g class="hover-target" tabindex="0" role="group" aria-label="Gate">
+			<title>Gate</title>
+			<rect class="hover-hit" x="966" y="280" width="8" height="330" />
+			<rect class="hover-outline" x="966" y="280" width="8" height="330" />
+			<text class="hover-label" x="982" y="445">GATE</text>
+		</g>
+		<g class="hover-target" tabindex="0" role="group" aria-label="Side-view frame">
+			<title>Frame (side)</title>
+			<path class="hover-hit" d="M1280 220H1340V670H1280Z M1280 280H1340V610H1280Z" fill-rule="evenodd" />
+			<path class="hover-outline" d="M1280 220H1340V670H1280Z M1280 280H1340V610H1280Z" fill-rule="evenodd" />
+			<text class="hover-label light" x="1310" y="245" text-anchor="middle">FRAME</text>
+		</g>
+		<g class="hover-target" tabindex="0" role="group" aria-label="Side-view tunnel">
+			<title>Tunnel (side)</title>
+			<path class="hover-hit" d="M1340 260H1460V280H1340Z M1340 610H1460V630H1340Z" />
+			<path class="hover-outline" d="M1340 260H1460V280H1340Z M1340 610H1460V630H1340Z" />
+			<text class="hover-label" x="1398" y="250" text-anchor="middle">TUNNEL</text>
+		</g>
+		<g class="hover-target" tabindex="0" role="group" aria-label="Side-view gate">
+			<title>Gate (side)</title>
+			<rect class="hover-hit" x="1306" y="280" width="8" height="330" />
+			<rect class="hover-outline" x="1306" y="280" width="8" height="330" />
+			<text class="hover-label" x="1322" y="445">GATE</text>
+		</g>
+
+		<g id="sensor-layers" aria-label="Sensor placement layers">
+			<!-- Datum: PCB left edge (x=280) and PCB top edge (y=614). ToF modules 13 x 18 mm (reference/vl53l0x_1.jpg), ~3 mm thick.
+			     ToF line of sight: 45 deg towards the opening centre in the frame plane, tilted 30 deg out of it (out: to the outside, in: into the tunnel). -->
+			<g id="sensor-placement" data-layer="sensing" aria-label="Sensor placement layer">
+				<g id="sensors-front-view">
+					<rect x="280" y="614" width="330" height="42" rx="3" fill="#3f8f5a" fill-opacity="0.4" stroke="#1e5a36" stroke-width="1" />
+					<rect x="434" y="614" width="22" height="42" fill="url(#keepout-hatch)" opacity="0.6" />
+
+					<path d="M280 630H228V255H238 M228 320H246 M610 630H662V255H652 M662 320H644" fill="none" stroke="#a66bd6" stroke-width="1.5" stroke-dasharray="5 3" />
+
+					<!-- Camera sits in the tunnel behind the flap, so hidden (dashed); FFC runs along the tunnel floor to a connector on the PCB back face. -->
+					<g fill="none" stroke="#4a7fb5" stroke-width="1" stroke-dasharray="3 2">
+						<rect x="528" y="598" width="24" height="12" />
+						<rect x="520" y="610" width="32" height="8" />
+						<rect x="520" y="618" width="32" height="12" fill="#d9dde0" fill-opacity="0.6" />
+					</g>
+
+					<g id="tof-front">
+						<path d="M255 255L444.7 444.7 M635 255L445.3 444.7" stroke="#6b2fa3" stroke-width="1.2" stroke-dasharray="2 3" />
+						<path d="M263 320L452.7 509.7 M627 320L437.3 509.7" stroke="#1f7a8c" stroke-width="1.2" stroke-dasharray="2 3" />
+						<g fill="#6b2fa3" stroke="#3d1863" stroke-width="1">
+							<polygon points="263.1,237.7 272.3,246.9 246.9,272.3 237.7,263.1" />
+							<polygon points="626.9,237.7 617.7,246.9 643.1,272.3 652.3,263.1" />
+						</g>
+						<g fill="#1f7a8c" stroke="#0f4752" stroke-width="1">
+							<polygon points="280.3,311.9 271.1,302.7 245.7,328.1 254.9,337.3" />
+							<polygon points="609.7,311.9 618.9,302.7 644.3,328.1 635.1,337.3" />
+						</g>
+					</g>
+
+					<g fill="#b03a2e">
+						<rect x="396" y="600" width="8" height="4" />
+						<rect x="486" y="600" width="8" height="4" />
+					</g>
+					<rect x="397" y="615" width="6" height="3" fill="#1b1b1b" />
+					<rect x="487" y="615" width="6" height="3" fill="none" stroke="#1b1b1b" stroke-width="0.8" stroke-dasharray="1.5 1" />
+
+					<rect x="311" y="625" width="18" height="18" rx="2" fill="#2b2b2b" stroke="#111111" stroke-width="1" />
+					<circle cx="320" cy="634" r="2.5" fill="#888888" />
+
+					<g class="label" font-size="10" font-weight="700" pointer-events="none">
+						<text x="255" y="232" text-anchor="middle" fill="#f4f3eb">OUT</text>
+						<text x="635" y="232" text-anchor="middle" fill="#f4f3eb">OUT</text>
+						<text x="238" y="352" text-anchor="middle" fill="#f4f3eb">IN</text>
+						<text x="652" y="352" text-anchor="middle" fill="#f4f3eb">IN</text>
+						<text x="400" y="596" text-anchor="middle">magnet</text>
+						<text x="490" y="596" text-anchor="middle">magnet</text>
+						<text x="400" y="630" text-anchor="middle" fill="#f4f3eb">HALL</text>
+						<text x="490" y="630" text-anchor="middle" fill="#f4f3eb">HALL</text>
+						<text x="320" y="653" text-anchor="middle" fill="#f4f3eb">PIEZO</text>
+					</g>
+				</g>
+
+				<g id="sensors-side-view">
+					<path d="M1294 255L1139 445" stroke="#6b2fa3" stroke-width="1.2" stroke-dasharray="2 3" />
+					<path d="M1326 320L1481 509.7" stroke="#1f7a8c" stroke-width="1.2" stroke-dasharray="2 3" />
+					<polygon points="1282.7,237.7 1305.3,246.9 1305.3,272.3 1282.7,263.1" fill="#6b2fa3" stroke="#3d1863" stroke-width="1" />
+					<polygon points="1314.7,311.9 1337.3,302.7 1337.3,328.1 1314.7,337.3" fill="#1f7a8c" stroke="#0f4752" stroke-width="1" />
+					<path d="M1430 608H1342L1318 617V624" fill="none" stroke="#4a7fb5" stroke-width="2" />
+					<rect x="1430" y="598" width="24" height="12" fill="#4a7fb5" stroke="#2c5480" stroke-width="1" />
+					<rect x="1438" y="594" width="8" height="4" fill="#1b1b1b" />
+					<rect x="1311.6" y="618" width="5" height="14" fill="#d9dde0" stroke="#263633" stroke-width="0.8" />
+					<rect x="1308.4" y="614" width="3.2" height="42" fill="#3f8f5a" stroke="#1e5a36" stroke-width="0.5" />
+					<rect x="1306" y="600" width="8" height="4" fill="#b03a2e" />
+					<rect x="1306.2" y="615" width="2.2" height="5.8" fill="#1b1b1b" />
+					<rect x="1311.6" y="615" width="2.2" height="5.8" fill="#1b1b1b" />
+					<rect x="1300.4" y="625" width="8" height="18" fill="#2b2b2b" />
+					<path d="M1300.4 634H1280" fill="none" stroke="#888888" stroke-width="2" stroke-dasharray="2 1.5" />
+					<g class="label" font-size="10" font-weight="600" pointer-events="none">
+						<text x="1205" y="470" text-anchor="middle">outward (L + R coincide)</text>
+						<text x="1205" y="483" text-anchor="middle">45&#176; to centre, 30&#176; out</text>
+						<text x="1500" y="530" text-anchor="middle">inward (L + R coincide)</text>
+						<text x="1500" y="543" text-anchor="middle">45&#176; to centre, 30&#176; in</text>
+						<text x="1442" y="588" text-anchor="middle">camera (TBD)</text>
+						<text x="1250" y="636" text-anchor="end">sound hole</text>
+					</g>
+				</g>
+
+				<!-- Top view: x = depth (side x - 340), y = front-view x. -->
+				<g id="sensors-top-view">
+					<rect x="972" y="520" width="118" height="32" fill="#4a7fb5" fill-opacity="0.35" stroke="#4a7fb5" stroke-width="1" />
+					<rect x="1090" y="528" width="24" height="24" fill="#4a7fb5" stroke="#2c5480" stroke-width="1" />
+					<circle cx="1102" cy="540" r="4" fill="#1b1b1b" />
+					<path d="M954 255L799 445 M954 635L799 445.3" stroke="#6b2fa3" stroke-width="1.2" stroke-dasharray="2 3" />
+					<path d="M986 263L1141 452.7 M986 627L1141 437.3" stroke="#1f7a8c" stroke-width="1.2" stroke-dasharray="2 3" />
+					<g fill="#6b2fa3" stroke="#3d1863" stroke-width="1">
+						<polygon points="942.7,263.1 965.3,272.3 965.3,246.9 942.7,237.7" />
+						<polygon points="942.7,626.9 965.3,617.7 965.3,643.1 942.7,652.3" />
+					</g>
+					<g fill="#1f7a8c" stroke="#0f4752" stroke-width="1">
+						<polygon points="974.7,280.3 997.3,271.1 997.3,245.7 974.7,254.9" />
+						<polygon points="974.7,609.7 997.3,618.9 997.3,644.3 974.7,635.1" />
+					</g>
+				</g>
+
+				<g class="dimensions label" font-size="10" font-weight="600" pointer-events="none">
+					<path class="extension" d="M280 614V184 M255 238V184 M635 238V184" />
+					<path class="dimension" d="M255 190H635 M255 184V196 M280 184V196 M635 184V196" />
+					<text x="250" y="178" text-anchor="end">&#8722;12.5</text>
+					<text x="284" y="178">0</text>
+					<text x="635" y="178" text-anchor="middle">177.5</text>
+					<text x="650" y="194">outward ToF centres, mm from PCB left edge</text>
+
+					<path class="extension" d="M280 656V746 M320 643V706 M400 618V706 M490 618V706 M536 630V706" />
+					<path class="dimension" d="M280 700H536 M280 694V706 M320 694V706 M400 694V706 M490 694V706 M536 694V706" />
+					<text x="280" y="718" text-anchor="middle">0</text>
+					<text x="320" y="718" text-anchor="middle">20</text>
+					<text x="400" y="718" text-anchor="middle">60</text>
+					<text x="490" y="718" text-anchor="middle">105</text>
+					<text x="536" y="718" text-anchor="middle">128</text>
+					<text x="680" y="704">piezo &#183; hall &#183; camera FFC centre (mm from PCB left edge)</text>
+
+					<path class="extension" d="M263 337V746 M627 337V746" />
+					<path class="dimension" d="M263 740H627 M263 734V746 M280 734V746 M627 734V746" />
+					<text x="259" y="758" text-anchor="end">&#8722;8.5</text>
+					<text x="284" y="758">0</text>
+					<text x="627" y="758" text-anchor="middle">173.5</text>
+					<text x="680" y="744">inward ToF centres (mm from PCB left edge)</text>
+
+					<path class="extension" d="M164 255H220 M164 320H220 M164 614H220" />
+					<path class="dimension" d="M170 255V614 M164 255H176 M164 320H176 M164 614H176" />
+					<text x="160" y="259" text-anchor="end">179.5 outward</text>
+					<text x="160" y="324" text-anchor="end">147 inward</text>
+					<text x="160" y="618" text-anchor="end">0 PCB top</text>
+					<text x="70" y="440" text-anchor="middle" transform="rotate(-90 70 440)">ToF centres, mm above PCB top edge</text>
+
+					<text x="690" y="598">magnet &#216;4 &#215; 2 mm in flap bottom edge</text>
+					<text x="690" y="611">&#8776; 5 mm to SOT-23 hall on PCB</text>
+					<path d="M494 602H686" fill="none" stroke="#000000" stroke-width="0.8" stroke-dasharray="2 2" />
+				</g>
+
+				<g class="label" font-size="11" pointer-events="none">
+					<rect x="80" y="780" width="18" height="12" fill="#6b2fa3" />
+					<text x="106" y="790">VL53L0X ToF 13 &#215; 18 mm, stacked in the top of each side rail: outward (purple) above, inward (teal) below; both aim 45&#176; to the opening centre, tilted 30&#176; out / in; dotted = viewing axis</text>
+					<rect x="80" y="798" width="18" height="12" fill="#1b1b1b" />
+					<text x="106" y="808">Hall sensors, SOT-23 on the PCB top edge (front face solid, back face dashed); magnets in the flap above</text>
+					<rect x="80" y="816" width="18" height="12" fill="#2b2b2b" rx="2" />
+					<text x="106" y="826">SMD piezo buzzer 9 &#215; 9 &#215; 4 mm, front face, sound hole through the frame front</text>
+					<rect x="80" y="834" width="18" height="12" fill="#4a7fb5" />
+					<text x="106" y="844">Camera (TBD) on the tunnel floor near the inside; 16 mm FFC along the floor to a PCB connector right of the latches; dashed purple = ToF wiring (&#8776; 220 mm outward, &#8776; 190 mm inward)</text>
+				</g>
+
+				<g class="hover-target" tabindex="0" role="group" aria-label="Time-of-flight sensors">
+					<title>VL53L0X ToF modules (outward above, inward below, top of each side rail)</title>
+					<path class="hover-hit" d="M263.1 237.7L272.3 246.9L246.9 272.3L237.7 263.1Z M626.9 237.7L617.7 246.9L643.1 272.3L652.3 263.1Z M280.3 311.9L271.1 302.7L245.7 328.1L254.9 337.3Z M609.7 311.9L618.9 302.7L644.3 328.1L635.1 337.3Z" />
+					<path class="hover-outline" d="M263.1 237.7L272.3 246.9L246.9 272.3L237.7 263.1Z M626.9 237.7L617.7 246.9L643.1 272.3L652.3 263.1Z M280.3 311.9L271.1 302.7L245.7 328.1L254.9 337.3Z M609.7 311.9L618.9 302.7L644.3 328.1L635.1 337.3Z" />
+				</g>
+				<g class="hover-target" tabindex="0" role="group" aria-label="Hall sensors">
+					<title>Hall sensors (SOT-23) with flap magnets</title>
+					<path class="hover-hit" d="M394 598h12v22h-12Z M484 598h12v22h-12Z" />
+					<path class="hover-outline" d="M394 598h12v22h-12Z M484 598h12v22h-12Z" />
+				</g>
+				<g class="hover-target" tabindex="0" role="group" aria-label="Piezo buzzer">
+					<title>SMD piezo buzzer 9 x 9 x 4 mm</title>
+					<rect class="hover-hit" x="311" y="625" width="18" height="18" />
+					<rect class="hover-outline" x="311" y="625" width="18" height="18" />
+				</g>
+				<g class="hover-target" tabindex="0" role="group" aria-label="Camera and flat cable">
+					<title>Camera (TBD) on the tunnel floor, 16 mm FFC to the PCB</title>
+					<rect class="hover-hit" x="520" y="598" width="32" height="32" />
+					<rect class="hover-outline" x="520" y="598" width="32" height="32" />
+				</g>
+			</g>
+		</g>
+	</g>
+</svg>

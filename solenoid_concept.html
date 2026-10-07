@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Cat Flap | Layer Comparison</title>
+	<style>
+		:root {
+			color-scheme: light;
+			--paper: #f4f3eb;
+			--ink: #263633;
+			--muted: #71807a;
+			--line: #c7ccc3;
+			--frame: #354943;
+			--flap: #d8dfd5;
+			--accent: #c36b3f;
+			font-family: "Segoe UI", sans-serif;
+			color: var(--ink);
+		}
+		* { box-sizing: border-box; }
+		body { margin: 0; min-width: 320px; min-height: 100vh; background: var(--paper); }
+		button, input { font: inherit; }
+		.topbar {
+			display: grid;
+			grid-template-columns: auto minmax(0, 1fr);
+			align-items: center;
+			gap: 24px;
+			min-height: 78px;
+			padding: 10px 20px;
+			border-bottom: 1px solid var(--line);
+			background: var(--paper);
+		}
+		.brand { font-size: 14px; font-weight: 700; letter-spacing: .08em; white-space: nowrap; }
+		.toolbar { display: flex; align-items: center; justify-content: flex-end; gap: 24px; flex-wrap: wrap; }
+		.overlay-controls { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+		.section-title { margin: 0; color: var(--muted); font-size: 10px; font-weight: 700; letter-spacing: .1em; }
+		.layer-list { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+		.layer-row { display: grid; grid-template-columns: auto 86px 34px; align-items: center; gap: 6px; }
+		.layer-name, .part-toggle { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; }
+		.layer-name input, .part-toggle input { accent-color: var(--accent); }
+		.opacity-row { display: contents; }
+		.opacity-row input { width: 100%; accent-color: var(--accent); }
+		.opacity-row output { color: var(--muted); font-size: 11px; text-align: right; }
+		.parts { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+		.stage { min-width: 0; padding: 4px 12px; }
+		.canvas { display: flex; justify-content: center; background: var(--paper); overflow: hidden; }
+		#comparison { display: block; width: auto; max-width: 100%; height: auto; margin-inline: auto; }
+		.component { cursor: pointer; }
+		.component .hover-outline { fill: none; stroke: transparent; stroke-width: 0; }
+		.component:hover .hover-outline, .component:focus .hover-outline { stroke: var(--accent); stroke-width: 3; }
+		.component .hover-label { opacity: 0; fill: var(--ink); font-size: 11px; font-weight: 700; pointer-events: none; }
+		.component .hover-label.light { fill: var(--paper); }
+		.component:hover .hover-label, .component:focus .hover-label { opacity: 1; }
+		.overlay-geometry { fill: none; stroke: var(--accent); stroke-width: 2; }
+		@media (max-width: 940px) { .topbar { grid-template-columns: 1fr; gap: 10px; } .toolbar { justify-content: flex-start; } }
+		@media (max-width: 600px) { .toolbar, .overlay-controls { align-items: flex-start; flex-direction: column; gap: 12px; } .layer-list { align-items: flex-start; flex-direction: column; } .stage { padding: 10px; } }
+	</style>
+</head>
+<body>
+	<header class="topbar">
+		<div class="brand">CAT FLAP / LAYER COMPARISON</div>
+		<div class="toolbar">
+			<section class="overlay-controls" aria-label="Overlay layers">
+				<h2 class="section-title">LAYERS</h2>
+				<div class="layer-list" id="layer-controls">
+					<div class="layer-row" data-target="baseline-layer">
+						<label class="layer-name"><input class="layer-visible" type="checkbox" checked> BASE</label>
+						<div class="opacity-row"><input class="layer-opacity" aria-label="Baseline opacity" type="range" min="0" max="100" value="100"><output>100%</output></div>
+					</div>
+					<div class="layer-row" data-target="variant-1-layer">
+						<label class="layer-name"><input class="layer-visible" type="checkbox" checked> VARIANT 1</label>
+						<div class="opacity-row"><input class="layer-opacity" aria-label="Variant 1 opacity" type="range" min="0" max="100" value="45"><output>45%</output></div>
+					</div>
+				</div>
+			</section>
+			<section class="overlay-controls parts" aria-label="Visible components">
+				<h2 class="section-title">PARTS</h2>
+				<label class="part-toggle"><input type="checkbox" data-part-toggle="frame" checked> FRAME</label>
+				<label class="part-toggle"><input type="checkbox" data-part-toggle="flap" checked> FLAP</label>
+				<label class="part-toggle"><input type="checkbox" data-part-toggle="tunnel" checked> TUNNEL</label>
+				<label class="part-toggle"><input type="checkbox" data-part-toggle="gate" checked> GATE</label>
+				<label class="part-toggle"><input type="checkbox" data-part-toggle="solenoid" checked> SOLENOIDS</label>
+			</section>
+		</div>
+	</header>
+	<main class="stage">
+		<div class="canvas">
+				<svg id="comparison" xmlns="http://www.w3.org/2000/svg" viewBox="200 140 700 540" role="img" aria-label="Overlaid cat flap hardware drawing">
+				<rect x="200" y="140" width="700" height="540" fill="#f4f3eb" />
+					<defs>
+						<path id="frame-ring" d="M220 220H670V670H220Z M280 280H610V610H280Z" fill-rule="evenodd" />
+						<path id="tunnel-ring" d="M940 220H1000V670H940Z M940 280H1000V610H940Z" fill-rule="evenodd" />
+						<g id="hs0530b-front">
+							<rect x="-15" y="-126.4" width="30" height="60" fill="#9aa1a3" stroke="#4d5557" stroke-width="1.5" />
+							<rect x="-11" y="-121.4" width="22" height="50" fill="#2f6db5" />
+							<rect x="-5" y="-126.4" width="10" height="126.4" fill="#d3d8da" stroke="#5f686b" stroke-width="1" />
+							<circle cx="0" cy="-6" r="1.8" fill="#5f686b" />
+							<rect x="-8" y="-136.4" width="16" height="10" rx="3" fill="#b8bec0" stroke="#5f686b" stroke-width="1" />
+							<path d="M-10 -20H10" stroke="#c36b3f" stroke-width="1.5" stroke-dasharray="3 2" />
+						</g>
+					</defs>
+				<g class="view-labels" fill="#263633" font-family="Segoe UI, sans-serif" font-size="12" font-weight="700">
+					<text x="445" y="150" text-anchor="middle">FRONT VIEW</text>
+					<text x="780" y="150" text-anchor="middle">TOP VIEW</text>
+				</g>
+					<g id="design-layers">
+						<g id="baseline-layer" class="design-layer" style="opacity:1">
+							<g class="view-panel" data-view="front">
+								<g class="component" data-part="frame" tabindex="0" aria-label="Frame">
+									<title>Frame</title>
+									<use href="#frame-ring" fill="#354943" />
+									<use class="hover-outline" href="#frame-ring" />
+									<text class="hover-label light" x="445" y="245" text-anchor="middle">FRAME</text>
+								</g>
+								<g class="component" data-part="flap" tabindex="0" aria-label="Flap, 161 by 161 millimetres">
+									<title>Flap</title>
+									<rect x="284" y="284" width="322" height="322" fill="#d8dfd5" stroke="#71807a" stroke-width="2" />
+									<rect class="hover-outline" x="284" y="284" width="322" height="322" />
+									<text class="hover-label" x="445" y="322" text-anchor="middle">FLAP</text>
+								</g>
+							</g>
+							<g class="view-panel" data-view="top">
+								<g transform="translate(-250 0)">
+								<g class="component" data-part="frame" tabindex="0" aria-label="Frame at tunnel entrance">
+									<title>Frame</title>
+									<use href="#tunnel-ring" fill="#354943" />
+									<use class="hover-outline" href="#tunnel-ring" />
+									<text class="hover-label light" x="970" y="245" text-anchor="middle">FRAME</text>
+								</g>
+								<g class="component" data-part="tunnel" tabindex="0" aria-label="Tunnel extension">
+									<title>Tunnel</title>
+									<path d="M1000 260H1120V280H1000Z M1000 610H1120V630H1000Z" fill="#354943" />
+									<path class="hover-outline" d="M1000 260H1120V280H1000Z M1000 610H1120V630H1000Z" />
+									<path d="M1048 258L1058 278 M1064 258L1074 278 M1048 612L1058 632 M1064 612L1074 632" class="overlay-geometry" />
+									<text class="hover-label" x="1058" y="250" text-anchor="middle">TUNNEL</text>
+								</g>
+								<g class="component" data-part="gate" tabindex="0" aria-label="Gate, 4 mm thick">
+									<title>Gate</title>
+									<rect x="966" y="280" width="8" height="330" fill="#263633" />
+									<rect class="hover-outline" x="966" y="280" width="8" height="330" />
+									<text class="hover-label" x="982" y="300">GATE / 4 mm</text>
+								</g>
+								</g>
+							</g>
+						</g>
+						<g id="variant-1-layer" class="design-layer" style="opacity:.45">
+							<g class="view-panel" data-view="front">
+								<g class="component" data-part="solenoid" tabindex="0" aria-label="Variant 1 pair of HS-0530B solenoids">
+									<title>Variant 1: HS-0530B solenoid pair</title>
+									<use href="#hs0530b-front" transform="translate(250 666)" />
+									<use href="#hs0530b-front" transform="translate(640 666)" />
+									<rect class="hover-outline" x="235" y="529.6" width="30" height="136.4" />
+									<rect class="hover-outline" x="625" y="529.6" width="30" height="136.4" />
+									<text class="hover-label light" x="250" y="520" text-anchor="middle">SOLENOID</text>
+									<text class="hover-label light" x="640" y="520" text-anchor="middle">SOLENOID</text>
+								</g>
+							</g>
+						</g>
+					</g>
+				</svg>
+			</div>
+		</main>
+	<script>
+		function bindLayerRow(row) {
+			const layer = document.getElementById(row.dataset.target);
+			const visible = row.querySelector(".layer-visible");
+			const opacity = row.querySelector(".layer-opacity");
+			const output = row.querySelector("output");
+			visible.addEventListener("change", () => { layer.style.display = visible.checked ? "" : "none"; });
+			opacity.addEventListener("input", () => {
+				layer.style.opacity = Number(opacity.value) / 100;
+				output.value = `${opacity.value}%`;
+			});
+		}
+
+		document.querySelectorAll(".layer-row").forEach(bindLayerRow);
+
+		document.querySelectorAll("[data-part-toggle]").forEach(toggle => {
+			toggle.addEventListener("change", () => {
+				document.querySelectorAll(`[data-part="${toggle.dataset.partToggle}"]`).forEach(part => {
+					part.style.display = toggle.checked ? "" : "none";
+				});
+			});
+		});
+
+		const comparison = document.querySelector("#comparison");
+		const canvas = document.querySelector(".canvas");
+		const topbar = document.querySelector(".topbar");
+		function fitComparison() {
+			const availableHeight = Math.max(300, window.innerHeight - topbar.getBoundingClientRect().bottom - 8);
+			const width = Math.min(canvas.clientWidth, availableHeight * (700 / 540));
+			comparison.style.width = `${width}px`;
+		}
+		window.addEventListener("resize", fitComparison, { passive: true });
+		fitComparison();
+	</script>
+</body>
+</html>
