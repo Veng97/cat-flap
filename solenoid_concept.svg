@@ -753,33 +753,26 @@
 				<g id="sensors-front-view">
 					<rect x="280" y="614" width="330" height="42" rx="3" fill="#3f8f5a" fill-opacity="0.4" stroke="#1e5a36" stroke-width="1" />
 					<rect x="434" y="614" width="22" height="42" fill="url(#keepout-hatch)" opacity="0.6" />
-					<path d="M256 320V614 M634 320V614" fill="none" stroke="#71807a" stroke-width="1" stroke-dasharray="2 3" />
+					<path d="M256 334V614 M634 334V614" fill="none" stroke="#71807a" stroke-width="1" stroke-dasharray="2 3" />
 
-					<path d="M280 630H228V320H239 M228 362H239 M610 630H662V320H651 M662 362H651" fill="none" stroke="#a66bd6" stroke-width="1.5" stroke-dasharray="5 3" />
-
-					<!-- Camera sits in the tunnel behind the flap, so hidden (dashed); FFC runs along the tunnel floor to a connector on the PCB back face. -->
-					<g fill="none" stroke="#4a7fb5" stroke-width="1" stroke-dasharray="3 2">
-						<rect x="340" y="598" width="24" height="12" />
-						<rect x="336" y="610" width="32" height="8" />
-						<rect x="336" y="618" width="32" height="12" fill="#d9dde0" fill-opacity="0.6" />
+					<g fill="none" stroke="#5f686b" stroke-width="1" stroke-dasharray="3 2">
+						<path d="M336 618C336 611 429 614 429 617 M368 618C368 615 461 614 461 617" stroke="#b87333" />
 					</g>
+					<rect id="camera-connector-front" x="336" y="618" width="32" height="14" rx="1" fill="#f4f3eb" stroke="#263633" stroke-width="0.8" />
+					<path d="M339 620H365" stroke="#5f686b" stroke-width="1.5" />
 
 					<g id="tof-front">
-						<path d="M256 320L445 502 M634 320L445 502" stroke="#6b2fa3" stroke-width="1.2" stroke-dasharray="2 3" />
-						<path d="M256 362L445 544 M634 362L445 544" stroke="#1f7a8c" stroke-width="1.2" stroke-dasharray="2 3" />
+						<path d="M256 334L370 435" stroke="#6b2fa3" stroke-width="1.2" stroke-dasharray="2 3" />
+						<path d="M634 334L520 435" stroke="#6b2fa3" stroke-width="1.2" stroke-dasharray="2 3" />
+						<path d="M256 374L370 476.4" stroke="#1f7a8c" stroke-width="1.2" stroke-dasharray="2 3" />
+						<path d="M634 374L520 476.4" stroke="#1f7a8c" stroke-width="1.2" stroke-dasharray="2 3" />
 						<g fill="#6b2fa3" stroke="#3d1863" stroke-width="1">
-							<polygon points="264.1,302.7 273.3,311.9 247.9,337.3 238.7,328.1" />
-							<polygon points="625.9,302.7 616.7,311.9 642.1,337.3 651.3,328.1" />
+							<polygon points="264.1,316.7 273.3,325.9 247.9,351.3 238.7,342.1" />
+							<polygon points="625.9,316.7 616.7,325.9 642.1,351.3 651.3,342.1" />
 						</g>
 						<g fill="#1f7a8c" stroke="#0f4752" stroke-width="1">
-							<polygon points="273.3,353.9 264.1,344.7 238.7,370.1 247.9,379.3" />
-							<polygon points="616.7,353.9 625.9,344.7 651.3,370.1 642.1,379.3" />
-						</g>
-						<g fill="#000000">
-							<rect x="254" y="318" width="4" height="4" />
-							<rect x="632" y="318" width="4" height="4" />
-							<rect x="254" y="360" width="4" height="4" />
-							<rect x="632" y="360" width="4" height="4" />
+							<polygon points="273.3,365.9 264.1,356.7 238.7,382.1 247.9,391.3" />
+							<polygon points="616.7,365.9 625.9,356.7 651.3,382.1 642.1,391.3" />
 						</g>
 					</g>
 
@@ -799,67 +792,59 @@
 					<rect x="487" y="615" width="6" height="3" fill="none" stroke="#1b1b1b" stroke-width="0.8" stroke-dasharray="1.5 1" />
 
 					<g class="label" font-size="10" font-weight="700" pointer-events="none">
-						<text x="214" y="314" text-anchor="end">OUT</text>
-						<text x="676" y="324">OUT</text>
-						<text x="214" y="375" text-anchor="end">IN</text>
-						<text x="676" y="371">IN</text>
 						<text x="400" y="630" text-anchor="middle" fill="#f4f3eb">HALL</text>
 						<text x="490" y="630" text-anchor="middle" fill="#f4f3eb">HALL</text>
 					</g>
 				</g>
 
 				<g id="sensors-side-view">
-					<path d="M1294 320L1145.3 502" stroke="#6b2fa3" stroke-width="1.2" stroke-dasharray="2 3" />
-					<path d="M1326 362L1474.7 544" stroke="#1f7a8c" stroke-width="1.2" stroke-dasharray="2 3" />
-					<polygon points="1282.7,302.7 1305.3,311.9 1305.3,337.3 1282.7,328.1" fill="#6b2fa3" stroke="#3d1863" stroke-width="1" />
-					<polygon points="1314.7,353.9 1337.3,344.7 1337.3,370.1 1314.7,379.3" fill="#1f7a8c" stroke="#0f4752" stroke-width="1" />
-					<rect x="1292" y="318" width="4" height="4" fill="#000000" />
-					<rect x="1324" y="360" width="4" height="4" fill="#000000" />
-					<path d="M1450 616.95H1340L1318 623.95" fill="none" stroke="#2c5480" stroke-width="5.6" stroke-linecap="round" stroke-linejoin="round" />
-					<g fill="none" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round">
-						<path d="M1450 614.7H1340L1318 621.7" stroke="#1b1b1b" />
-						<path d="M1450 616.2H1340L1318 623.2" stroke="#f4f3eb" />
-						<path d="M1450 617.7H1340L1318 624.7" stroke="#1b1b1b" />
-						<path d="M1450 619.2H1340L1318 626.2" stroke="#f4f3eb" />
+					<g id="camera-fov-side" aria-label="Illustrative camera field of view" pointer-events="none">
+						<title>Illustrative camera field of view toward the flap; angle depends on the selected camera</title>
+						<path d="M1442 615L1288 492L1254 588Z" fill="#5f686b" fill-opacity="0.08" />
+						<path d="M1288 492L1442 615L1254 588" fill="none" stroke="#5f686b" stroke-width="1.2" stroke-dasharray="4 3" />
 					</g>
-					<path d="M1432 603L1452 609V627L1432 621Z" fill="#4a7fb5" stroke="#2c5480" stroke-width="1" />
-					<path d="M1429 607L1433 608V617L1429 616Z" fill="#1b1b1b" />
-					<circle cx="1431.5" cy="612" r="3" fill="#b8bec0" stroke="#111111" stroke-width="0.7" />
-					<circle cx="1431.5" cy="612" r="1.8" fill="#101820" />
-					<path d="M1425 601L1436 604V608L1432 607V613L1427 612Z" fill="#5f686b" stroke="#4d5557" stroke-width="0.8" />
-					<rect x="1311.6" y="618" width="5" height="14" fill="#d9dde0" stroke="#263633" stroke-width="0.8" />
+					<path d="M1294 334L1204.4 435" stroke="#6b2fa3" stroke-width="1.2" stroke-dasharray="2 3" />
+					<path d="M1326 374L1415.6 476.4" stroke="#1f7a8c" stroke-width="1.2" stroke-dasharray="2 3" />
+					<polygon points="1282.7,316.7 1305.3,325.9 1305.3,351.3 1282.7,342.1" fill="#6b2fa3" stroke="#3d1863" stroke-width="1" />
+					<polygon points="1314.7,365.9 1337.3,356.7 1337.3,382.1 1314.7,391.3" fill="#1f7a8c" stroke="#0f4752" stroke-width="1" />
+					<path d="M1450 616.95H1340L1316.6 623.95" fill="none" stroke="#b87333" stroke-width="5.6" stroke-linecap="round" stroke-linejoin="round" />
+					<g fill="none" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M1450 614.7H1340L1316.6 621.7" stroke="#8f5426" />
+						<path d="M1450 616.2H1340L1316.6 623.2" stroke="#d9a16a" />
+						<path d="M1450 617.7H1340L1316.6 624.7" stroke="#8f5426" />
+						<path d="M1450 619.2H1340L1316.6 626.2" stroke="#d9a16a" />
+					</g>
+					<rect id="camera-body-side" x="1432" y="603" width="20" height="24" rx="1" fill="#9aa1a3" stroke="#4d5557" stroke-width="1" />
+					<circle id="camera-lens-side" cx="1442" cy="615" r="8" fill="#b8bec0" stroke="#4d5557" stroke-width="0.8" />
+					<circle cx="1442" cy="615" r="6.5" fill="#101820" />
+					<circle cx="1440" cy="613" r="1" fill="#d7dcdf" />
+					<rect x="1311.6" y="618" width="5" height="14" fill="#f4f3eb" stroke="#263633" stroke-width="0.8" />
 					<rect x="1308.4" y="614" width="3.2" height="42" fill="#3f8f5a" stroke="#1e5a36" stroke-width="0.5" />
 					<path d="M1306 606V590A4 2 0 0 1 1314 590V606Z" fill="#b8bec0" stroke="#5f686b" stroke-width="1" />
 					<ellipse cx="1310" cy="590" rx="4" ry="2" fill="#d7dcdf" stroke="#5f686b" stroke-width="0.8" />
 					<rect x="1306.2" y="615" width="2.2" height="5.8" fill="#1b1b1b" />
 					<rect x="1311.6" y="615" width="2.2" height="5.8" fill="#1b1b1b" />
-					<g class="label" font-size="10" font-weight="600" pointer-events="none">
-						<text x="1442" y="588" text-anchor="middle">camera (TBD)</text>
-					</g>
 				</g>
 
 				<!-- Top view: x = depth (side x - 340), y = front-view x. -->
 				<g id="sensors-top-view">
-					<rect x="972" y="336" width="118" height="32" fill="#4a7fb5" fill-opacity="0.35" stroke="#4a7fb5" stroke-width="1" />
-					<rect x="1090" y="340" width="24" height="24" fill="#4a7fb5" stroke="#2c5480" stroke-width="1" />
-					<circle cx="1092" cy="352" r="5" fill="#b8bec0" stroke="#111111" stroke-width="0.8" />
-					<circle cx="1092" cy="352" r="3" fill="#101820" />
-					<circle cx="1091" cy="351" r="0.8" fill="#f4f3eb" />
-					<path d="M954 256L805.3 445 M954 634L805.3 445" stroke="#6b2fa3" stroke-width="1.2" stroke-dasharray="2 3" />
-					<path d="M986 256L1134.7 445 M986 634L1134.7 445" stroke="#1f7a8c" stroke-width="1.2" stroke-dasharray="2 3" />
+					<path id="camera-ribbon-top" d="M976.6 336C1038 336 1040 429 1102 429H1110V461H1102C1040 461 1038 368 976.6 368Z" fill="#b87333" fill-opacity="0.9" stroke="#8f5426" stroke-width="1" />
+					<rect id="camera-connector-top" x="971.6" y="336" width="5" height="32" rx="1" fill="#f4f3eb" stroke="#263633" stroke-width="0.8" />
+					<rect id="camera-body-top" x="1092" y="433" width="20" height="24" rx="1" fill="#9aa1a3" stroke="#4d5557" stroke-width="1" />
+					<circle id="camera-lens-top" cx="1102" cy="445" r="8" fill="#b8bec0" stroke="#4d5557" stroke-width="0.8" />
+					<circle cx="1102" cy="445" r="6.5" fill="#101820" />
+					<circle cx="1100" cy="443" r="1" fill="#d7dcdf" />
+					<path d="M954 256L864.4 370" stroke="#6b2fa3" stroke-width="1.2" stroke-dasharray="2 3" />
+					<path d="M954 634L864.4 520" stroke="#6b2fa3" stroke-width="1.2" stroke-dasharray="2 3" />
+					<path d="M986 256L1075.6 370" stroke="#1f7a8c" stroke-width="1.2" stroke-dasharray="2 3" />
+					<path d="M986 634L1075.6 520" stroke="#1f7a8c" stroke-width="1.2" stroke-dasharray="2 3" />
 					<g fill="#6b2fa3" stroke="#3d1863" stroke-width="1">
 						<polygon points="942.7,264.1 965.3,273.3 965.3,247.9 942.7,238.7" />
-						<polygon points="942.7,611.9 965.3,602.7 965.3,628.1 942.7,637.3" />
+						<polygon points="942.7,625.9 965.3,616.7 965.3,642.1 942.7,651.3" />
 					</g>
 					<g fill="#1f7a8c" stroke="#0f4752" stroke-width="1">
 						<polygon points="974.7,273.3 997.3,264.1 997.3,238.7 974.7,247.9" />
-						<polygon points="974.7,602.7 997.3,611.9 997.3,637.3 974.7,628.1" />
-					</g>
-					<g fill="#000000">
-						<rect x="952" y="254" width="4" height="4" />
-						<rect x="984" y="254" width="4" height="4" />
-						<rect x="952" y="632" width="4" height="4" />
-						<rect x="984" y="632" width="4" height="4" />
+						<polygon points="974.7,616.7 997.3,625.9 997.3,651.3 974.7,642.1" />
 					</g>
 				</g>
 
@@ -874,10 +859,10 @@
 					<text x="268" y="754" text-anchor="middle" font-size="9">12 mm</text>
 					<text x="622" y="754" text-anchor="middle" font-size="9">12 mm</text>
 
-					<path class="extension" d="M164 320H220 M164 362H220 M164 614H220" />
-					<path class="dimension" d="M170 320V614 M164 320H176 M164 362H176 M164 614H176" />
-					<text x="160" y="324" text-anchor="end">147 mm</text>
-					<text x="160" y="366" text-anchor="end">126 mm</text>
+					<path class="extension" d="M164 334H220 M164 374H220 M164 614H220" />
+					<path class="dimension" d="M170 334V614 M164 334H176 M164 374H176 M164 614H176" />
+					<text x="160" y="338" text-anchor="end">140 mm</text>
+					<text x="160" y="378" text-anchor="end">120 mm</text>
 					<text x="160" y="618" text-anchor="end">0 mm</text>
 
 					<path d="M400 597L480 560 M490 597L520 560 M480 560H600" fill="none" stroke="#000000" stroke-width="1.2" />
@@ -888,17 +873,19 @@
 
 				<g class="label" font-size="11" pointer-events="none">
 					<rect x="80" y="780" width="18" height="12" fill="#6b2fa3" />
-					<text x="106" y="790">VL53L0X ToF: outward (purple), inward (teal); dotted = view axes</text>
-					<rect x="80" y="798" width="18" height="12" fill="#1b1b1b" />
-					<text x="106" y="808">Hall sensors and flap magnets (front solid, rear dashed)</text>
-					<rect x="80" y="816" width="18" height="12" fill="#4a7fb5" />
-					<text x="106" y="826">Tunnel camera (TBD); 16 mm FFC to PCB</text>
+					<text x="106" y="790">Outward ToF pair</text>
+					<rect x="80" y="798" width="18" height="12" fill="#1f7a8c" />
+					<text x="106" y="808">Inward ToF pair</text>
+					<rect x="80" y="816" width="18" height="12" fill="#1b1b1b" />
+					<text x="106" y="826">Hall sensors (front solid, tunnel-side dashed)</text>
+					<rect x="80" y="834" width="18" height="12" fill="#9aa1a3" />
+					<text x="106" y="844">Tunnel camera; 16 mm FFC to PCB</text>
 				</g>
 
 				<g class="hover-target" tabindex="0" role="group" aria-label="Time-of-flight sensors">
 					<title>VL53L0X ToF modules (outward above, inward below, top of each side rail)</title>
-					<path class="hover-hit" d="M264.1 302.7L273.3 311.9L247.9 337.3L238.7 328.1Z M625.9 302.7L616.7 311.9L642.1 337.3L651.3 328.1Z M273.3 353.9L264.1 344.7L238.7 370.1L247.9 379.3Z M616.7 353.9L625.9 344.7L651.3 370.1L642.1 379.3Z" />
-					<path class="hover-outline" d="M264.1 302.7L273.3 311.9L247.9 337.3L238.7 328.1Z M625.9 302.7L616.7 311.9L642.1 337.3L651.3 328.1Z M273.3 353.9L264.1 344.7L238.7 370.1L247.9 379.3Z M616.7 353.9L625.9 344.7L651.3 370.1L642.1 379.3Z" />
+					<path class="hover-hit" d="M264.1 316.7L273.3 325.9L247.9 351.3L238.7 342.1Z M625.9 316.7L616.7 325.9L642.1 351.3L651.3 342.1Z M273.3 365.9L264.1 356.7L238.7 382.1L247.9 391.3Z M616.7 365.9L625.9 356.7L651.3 382.1L642.1 391.3Z" />
+					<path class="hover-outline" d="M264.1 316.7L273.3 325.9L247.9 351.3L238.7 342.1Z M625.9 316.7L616.7 325.9L642.1 351.3L651.3 342.1Z M273.3 365.9L264.1 356.7L238.7 382.1L247.9 391.3Z M616.7 365.9L625.9 356.7L651.3 382.1L642.1 391.3Z" />
 				</g>
 				<g class="hover-target" tabindex="0" role="group" aria-label="Hall sensors">
 					<title>Hall sensors (SOT-23) with flap magnets</title>
@@ -907,8 +894,8 @@
 				</g>
 				<g class="hover-target" tabindex="0" role="group" aria-label="Camera and flat cable">
 					<title>Camera (TBD) on the tunnel floor, 16 mm FFC to the PCB</title>
-					<rect class="hover-hit" x="336" y="598" width="32" height="32" />
-					<rect class="hover-outline" x="336" y="598" width="32" height="32" />
+					<path class="hover-hit" d="M336 618H368V632H336Z" />
+					<path class="hover-outline" d="M336 618H368V632H336Z" />
 				</g>
 			</g>
 		</g>
