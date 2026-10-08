@@ -7,6 +7,8 @@
 ## Sensing
 
 - [4 GERUI VL53L0X time-of-flight distance sensor modules](https://www.amazon.de/dp/B0DY7RMFML) — 940 nm infrared laser; I2C (TWI) interface; 50 ms response time; PWM output.
+- [A3144 Hall-effect sensors](https://www.amazon.de/-/en/A3144-3144E-OH3144E-Electronic-Appliances/dp/B08QCRYXPK/ref=sr_1_7?sr=8-7) — digital magnetic-field switches for detecting magnets.
+
 
 ## Support and Linkage
 
@@ -15,3 +17,4 @@
 - [12 stainless-steel rods](https://www.amazon.de/dp/B0DCBCRB1C) — 304 stainless steel; 3 mm diameter; 300 mm length each.
 - [20 QUARKZMAN cylinder pins](https://www.amazon.de/dp/B0DS53LDKH) — 316L stainless steel; 4 mm diameter; 20 mm length; tapered ends.
 - [HERCULES braided PE fishing line](https://www.amazon.de/dp/B076FKDWPD) — 300 m; 4-strand braid; PE/UHMWPE. Line diameter and breaking-strength options vary by selected variant.
+- [NeoDymium Magnets](https://www.amazon.de/Strong-Neodymium-Cylinder-Magnets-Silver/dp/B0DFCFDWPK/ref=sr_1_1_sspa?sr=8-1-spons&aref=JXHJv6yWv3&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY) — 4mm x 9mm small cylindrical Neodymium magnets.
