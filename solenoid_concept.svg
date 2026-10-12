@@ -1,4 +1,49 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="3600" viewBox="0 0 1600 3600" preserveAspectRatio="xMidYMid meet" style="display:block;width:100%;height:100%" role="img" aria-labelledby="drawing-title drawing-description">
+	<!--
+	STYLING REFERENCE FOR FUTURE EDITS / AI AGENTS
+	Reuse the classes and conventions below; do not invent a new annotation style.
+	All sizes below are SVG user units, not physical millimetres. Geometry uses
+	2 SVG units per mm, so a black dot with r="2" has a physical diameter of 2 mm.
+
+	TEXT
+	- Use the .label font family: "Segoe UI", sans-serif. No letter spacing.
+	- Measurements and item descriptors are black (#000000), using .dimensions.label.
+	- Use sentence case; preserve part codes (693ZZ), acronyms (PE, PCB), and W/H.
+	- View headings: 12px, weight 700, uppercase. Hover labels: .hover-label,
+	  11px, weight 700, uppercase; use .light only over dark geometry.
+
+	MEASURED LENGTHS
+	- Main frame/flap dimensions: 11px, weight 600. Component dimensions:
+	  10px, weight 600. Reference: #gate-baseline-dimensions and pivot dimensions.
+	- Use .dimension: black, width 1.5, no fill. End each measured span with
+	  perpendicular 12-unit ticks (6 units either side); use the same ticks
+	  at intermediate measurement points. Do not substitute arrowheads.
+	- Use .extension for projection lines: black, width 0.6, dash pattern "1 3",
+	  round caps. Keep these distinct from solid measurement lines.
+	- Centre labels on their spans; rotate vertical labels -90 degrees.
+	  If a line crosses text, use a tightly fitted #f4f3eb background mask.
+	- Write a space before lowercase units: "10 mm", "0.55 mm". Use a decimal
+	  point and only necessary precision: "10", not "10.0"; preserve meaningful
+	  values such as "0.55". Do not round selected component specifications.
+	- Diameter: &#216; immediately before the number. Multi-axis sizes: &#215;
+	  with spaces between values, one trailing unit (e.g. 3 x 8 x 4 mm,
+	  using the multiplication symbol rather than the letter x in rendered text).
+
+	ITEM DESCRIPTORS / DOT-AND-LEADER CALLOUTS
+	- Canonical reference: the "693ZZ bearings" two-line callout.
+	- Text: 10px, weight 400, black, text-anchor="end"; 12-unit line spacing.
+	- Mark the referenced item with a filled black circle, r="2" (2 mm diameter).
+	- Leader: black, width 1.2, no fill; angled segment from the dot followed
+	  by a horizontal segment beneath the text. No text-decoration underline.
+	- Put the final text baseline 4 units above the horizontal leader; leave
+	  10 units between the right-aligned text anchor and the leader bend/end.
+	- Keep wording short: item/material first, size or function second.
+	- Use .dimensions.label so callouts follow measurement visibility rules.
+	- Fit the horizontal leader to both text lines and avoid other annotations
+	  or geometry. Check rendered text bounds after changing wording.
+	- Existing larger baseline callouts are legacy exceptions, not templates
+	  for new component notes. Do not restyle unrelated elements during edits.
+	-->
 	<title id="drawing-title">Cat flap gate - mechanical variants</title>
 	<desc id="drawing-description">Four concept sheets share a dimensioned front, top and side-view baseline. Variant 1 has separate actuation, sensing, and support/linkage layers; the third sheet shows the PCB and component keep-outs; the fourth places sensors relative to the PCB.</desc>
 	<style>
@@ -15,7 +60,7 @@
 		.label { font-family: "Segoe UI", sans-serif; fill: #263633; }
 		.quiet { fill: #71807a; }
 		.dimension { fill: none; stroke: #000000; stroke-width: 1.5; }
-		.extension { fill: none; stroke: #000000; stroke-width: 1; stroke-dasharray: 1 3; stroke-linecap: round; }
+		.extension { fill: none; stroke: #000000; stroke-width: 0.6; stroke-dasharray: 1 3; stroke-linecap: round; }
 		.dimensions { fill: #000000; }
 	</style>
 
@@ -46,8 +91,6 @@
 					fill="none" stroke="#354943" stroke-width="1.2" />
 				<path class="highlight" d="M1000 260H1120V280H1000Z M1000 610H1120V630H1000Z"
 					fill="none" stroke="#354943" stroke-width="1.8" />
-				<path d="M1045 255L1061 285 M1057 255L1073 285 M1045 605L1061 635 M1057 605L1073 635"
-					fill="none" stroke="#000000" stroke-width="1.4" />
 			</g>
 			<g id="gate-plane-geometry" class="part" data-layer="gate" tabindex="0" role="group" aria-label="Gate plane centered within the front frame">
 				<title>Flap panel seen from above</title>
@@ -63,8 +106,6 @@
 					fill="none" stroke="#354943" stroke-width="1.2" />
 				<path class="highlight" d="M1340 260H1460V280H1340Z M1340 610H1460V630H1340Z"
 					fill="none" stroke="#354943" stroke-width="1.8" />
-				<path d="M1385 255L1401 285 M1397 255L1413 285 M1385 605L1401 635 M1397 605L1413 635"
-					fill="none" stroke="#000000" stroke-width="1.4" />
 			</g>
 			<g id="gate-side-view-geometry" class="part" data-layer="gate" tabindex="0" role="group" aria-label="Gate plane seen from the side">
 				<title>Flap panel seen from the side</title>
@@ -74,52 +115,48 @@
 
 		<symbol id="gate-baseline-dimensions" viewBox="0 0 1600 900">
 			<g id="front-dimensions" class="dimensions label" data-layer="dimensions" font-size="11" font-weight="600" pointer-events="none">
-				<path class="extension" d="M220 195V220 M670 195V220" />
 				<path class="dimension" d="M220 195H670 M220 189V201 M670 189V201" />
 				<rect x="383" y="183" width="124" height="20" fill="#f4f3eb" />
 				<text x="445" y="197" text-anchor="middle">Frame W: 225 mm</text>
 
-				<path class="extension" d="M165 220H220 M165 670H220" />
-				<path class="dimension" d="M165 220V670 M159 220H171 M159 670H171" />
-				<text x="149" y="445" text-anchor="middle" transform="rotate(-90 149 445)">Frame H: 225 mm</text>
+				<path class="dimension" d="M195 220V670 M189 220H201 M189 670H201" />
+				<rect x="185" y="383" width="20" height="124" fill="#f4f3eb" />
+				<text x="197" y="445" text-anchor="middle" transform="rotate(-90 197 445)">Frame H: 225 mm</text>
 
-				<circle cx="445" cy="282" r="3" fill="#000000" />
+				<circle cx="445" cy="282" r="2" fill="#000000" />
 				<path d="M445 282L459 258H622" fill="none" stroke="#000000" stroke-width="1.4" />
 				<text x="474" y="253" fill="#000000" font-size="12" font-weight="400">2 mm clearance / side</text>
 
-				<path class="extension" d="M284 606V710 M606 606V710" />
-				<path class="dimension" d="M284 710H606 M284 704V716 M606 704V716" />
-				<rect x="390" y="700" width="110" height="20" fill="#f4f3eb" />
-				<text x="445" y="714" text-anchor="middle">Flap W: 161 mm</text>
+				<path class="extension" d="M284 606V640 M606 606V640" />
+				<path class="dimension" d="M284 640H606 M284 634V646 M606 634V646" />
+				<rect x="390" y="630" width="110" height="20" fill="#f4f3eb" />
+				<text x="445" y="644" text-anchor="middle">Flap W: 161 mm</text>
 
-				<path class="extension" d="M606 284H710 M606 606H710" />
-				<path class="dimension" d="M710 284V606 M704 284H716 M704 606H716" />
-				<text x="726" y="445" text-anchor="middle" transform="rotate(-90 726 445)">Flap H: 161 mm</text>
+				<path class="extension" d="M606 284H640 M606 606H640" />
+				<path class="dimension" d="M640 284V606 M634 284H646 M634 606H646" />
+				<rect x="630" y="390" width="20" height="110" fill="#f4f3eb" />
+				<text x="644" y="445" text-anchor="middle" transform="rotate(-90 644 445)">Flap H: 161 mm</text>
 			</g>
 
 			<g id="top-dimensions" class="dimensions label" data-layer="dimensions" font-size="11" font-weight="600" pointer-events="none">
-				<path class="extension" d="M940 670V720 M1000 670V720" />
-				<path class="dimension" d="M940 720H1000 M940 714V726 M1000 714V726" />
-				<rect x="919" y="708" width="102" height="20" fill="#f4f3eb" />
-				<text x="970" y="722" text-anchor="middle">Frame depth: 30 mm</text>
+				<path class="dimension" d="M940 695H1000 M940 689V701 M1000 689V701" />
+				<text x="970" y="717" text-anchor="middle">Frame depth: 30 mm</text>
+
+				<path class="dimension" d="M915 610V670 M909 610H921 M909 670H921" />
+				<text x="897" y="640" text-anchor="middle" transform="rotate(-90 897 640)">Frame thickness: 30 mm</text>
 
 				<path class="extension" d="M1120 280H1160 M1120 610H1160" />
 				<path class="dimension" d="M1160 280V610 M1154 280H1166 M1154 610H1166" />
 				<text x="1180" y="445" text-anchor="middle" transform="rotate(-90 1180 445)">Tunnel W: 165 mm</text>
-				<path d="M966 328H974 M966 328L969 325 M966 328L969 331 M974 328L971 325 M974 328L971 331"
-					fill="none" stroke="#000000" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
 				<circle cx="970" cy="328" r="3" fill="#000000" />
-				<path d="M970 328L1002 353H1148" fill="none" stroke="#000000" stroke-width="1.4" />
-				<text x="1008" y="348" fill="#000000" font-size="12" font-weight="400">4 mm flap thickness</text>
+				<path d="M970 328L938 303H792" fill="none" stroke="#000000" stroke-width="1.4" />
+				<text x="932" y="298" text-anchor="end" fill="#000000" font-size="12" font-weight="400">4 mm flap thickness</text>
 			</g>
 
 			<g id="side-dimensions" class="dimensions label" data-layer="dimensions" font-size="11" font-weight="600" pointer-events="none">
-				<path class="extension" d="M1280 220H1240 M1280 280H1240" />
-				<path class="dimension" d="M1252 220V280 M1246 220H1258 M1246 280H1258" />
-				<text x="1234" y="250" text-anchor="middle" transform="rotate(-90 1234 250)">Frame thickness: 30 mm</text>
-
-				<path class="extension" d="M1460 280H1500 M1460 610H1500" />
-				<path class="dimension" d="M1500 280V610 M1494 280H1506 M1494 610H1506" />
+				<path class="extension" d="M1460 280H1500 M1460 610H1500 M1460 260H1484" />
+				<path class="dimension" d="M1500 280V610 M1494 280H1506 M1494 610H1506 M1476 260V280 M1470 260H1482 M1470 280H1482" />
+				<text x="1488" y="271">10 mm</text>
 				<text x="1520" y="445" text-anchor="middle" transform="rotate(-90 1520 445)">Tunnel H: 165 mm</text>
 			</g>
 		</symbol>
@@ -155,6 +192,14 @@
 		<!-- Spring 0.4 x 5 x 20 mm (13 coils) from the assortment, drawn at its 16.5 mm installed length; origin at top centre. -->
 		<path id="spring-04x5" fill="none" stroke-width="0.8" stroke-linejoin="round"
 			d="M-5 0l10 1.269l-10 1.269l10 1.269l-10 1.269l10 1.269l-10 1.269l10 1.269l-10 1.269l10 1.269l-10 1.269l10 1.269l-10 1.269l10 1.269l-10 1.269l10 1.269l-10 1.269l10 1.269l-10 1.269l10 1.269l-10 1.269l10 1.269l-10 1.269l10 1.269l-10 1.269l10 1.269l-10 1.269" />
+		<!-- Countersunk 3.5 x 35 mm screw (Fischer DuoPower 5x25 S) in section, pointing back (+x); origin at the head face. 7 mm head. -->
+		<g id="wood-screw-side">
+			<path d="M3.5 -3.5H64L70 0L64 3.5H3.5Z" fill="#d3d8da" stroke="#5f686b" stroke-width="1" />
+			<path d="M6 3.5L8 -3.5 M9 3.5L11 -3.5 M12 3.5L14 -3.5 M15 3.5L17 -3.5 M18 3.5L20 -3.5 M21 3.5L23 -3.5 M24 3.5L26 -3.5 M27 3.5L29 -3.5 M30 3.5L32 -3.5 M33 3.5L35 -3.5 M36 3.5L38 -3.5 M39 3.5L41 -3.5 M42 3.5L44 -3.5 M45 3.5L47 -3.5 M48 3.5L50 -3.5 M51 3.5L53 -3.5 M54 3.5L56 -3.5 M57 3.5L59 -3.5 M60 3.5L62 -3.5" fill="none" stroke="#5f686b" stroke-width="0.8" />
+			<path d="M0 -7L3.5 -3.5V3.5L0 7Z" fill="#b8bec0" stroke="#5f686b" stroke-width="1" />
+		</g>
+		<!-- Printed boss the screw head sits on: 5 mm thick, 12 mm outer diameter, 4 mm hole, shown in section; origin at the screw head face, extending back (+x). -->
+		<path id="screw-boss-side" d="M0 -12H10V-4H0Z M0 4H10V12H0Z" fill="#d8dfd5" stroke="#354943" stroke-width="1.2" stroke-linejoin="round" />
 		<pattern id="keepout-hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
 			<path d="M0 0V5" stroke="#b03a2e" stroke-width="1.4" />
 		</pattern>
@@ -163,9 +208,57 @@
 	<g id="sheet-geometry" class="sheet" data-name="Geometry">
 	<rect width="1600" height="900" fill="#f4f3eb" />
 	<g class="label">
-		<text x="80" y="70" font-size="16" font-weight="700" letter-spacing="1.5">CAT FLAP: GEOMETRY</text>
+		<text class="sheet-title" x="80" y="70" font-size="16" font-weight="700" letter-spacing="1.5">CAT FLAP: GEOMETRY</text>
 	</g>
 	<use id="baseline-instance" href="#gate-baseline" x="0" y="0" width="1600" height="900" />
+	<!-- Installation screws sit on the flap-to-frame corner diagonals; axes are 10 mm from the tunnel walls (y 260-280 and 610-630) behind the frame. -->
+	<g id="installation-screws" aria-label="Installation screws">
+		<title>Installation screws, 3.5 x 35 mm (Fischer DuoPower 5x25 S)</title>
+		<g fill="#d8dfd5" stroke="#354943" stroke-width="1.2">
+			<circle cx="240" cy="240" r="12" />
+			<circle cx="650" cy="240" r="12" />
+			<circle cx="240" cy="650" r="12" />
+			<circle cx="650" cy="650" r="12" />
+		</g>
+		<g fill="#b8bec0" stroke="#5f686b" stroke-width="1">
+			<circle cx="240" cy="240" r="7" />
+			<circle cx="650" cy="240" r="7" />
+			<circle cx="240" cy="650" r="7" />
+			<circle cx="650" cy="650" r="7" />
+		</g>
+		<path d="M236.5 240H243.5 M240 236.5V243.5 M646.5 240H653.5 M650 236.5V243.5 M236.5 650H243.5 M240 646.5V653.5 M646.5 650H653.5 M650 646.5V653.5" fill="none" stroke="#5f686b" stroke-width="1" />
+		<!-- Top view: y = front-view x. Side view: y = front-view y. Heads sit 5 mm (10 units) before the back face of the frame; screwed in from inside the print. -->
+		<use href="#screw-boss-side" transform="translate(990 240)" />
+		<use href="#screw-boss-side" transform="translate(990 650)" />
+		<use href="#screw-boss-side" transform="translate(1330 240)" />
+		<use href="#screw-boss-side" transform="translate(1330 650)" />
+		<use href="#wood-screw-side" transform="translate(990 240)" />
+		<use href="#wood-screw-side" transform="translate(990 650)" />
+		<use href="#wood-screw-side" transform="translate(1330 240)" />
+		<use href="#wood-screw-side" transform="translate(1330 650)" />
+	</g>
+	<g id="screw-dimensions" class="dimensions label" font-size="11" font-weight="600" pointer-events="none">
+		<path class="extension" d="M1330 228V190 M1400 236V190 M1340 220V205" />
+		<path class="dimension" d="M1330 190H1400 M1330 184V196 M1400 184V196" />
+		<text x="1365" y="179" text-anchor="middle">screw &#216;3.5 &#215; 35 mm</text>
+		<path class="dimension" d="M1330 205H1340 M1330 199V211 M1340 199V211" />
+		<text x="1348" y="209">5 mm</text>
+
+		<path class="extension" d="M1400 240H1482" />
+		<path class="dimension" d="M1476 240V260 M1470 240H1482" />
+		<text x="1488" y="254">10 mm</text>
+
+		<path class="extension" d="M1060 240H1142 M1120 260H1142" />
+		<path class="dimension" d="M1136 240V260 M1130 240H1142 M1130 260H1142 M1136 260V280 M1130 280H1142" />
+		<text x="1148" y="254">10 mm</text>
+		<text x="1148" y="271">10 mm</text>
+	</g>
+	<g id="screw-boss-callout" class="dimensions label" font-size="10" font-weight="400" pointer-events="none">
+		<circle cx="995" cy="232" r="2" fill="#000000" />
+		<path d="M995 232L965 196H830" fill="none" stroke="#000000" stroke-width="1.2" />
+		<text x="955" y="180" text-anchor="end">screw boss</text>
+		<text x="955" y="192" text-anchor="end">&#216;12 &#215; 5 mm, &#216;4 mm hole</text>
+	</g>
 	<use id="baseline-dimensions" class="dimensions" href="#gate-baseline-dimensions" x="0" y="0" width="1600" height="900" />
 	<g class="hover-target" tabindex="0" role="group" aria-label="Frame">
 		<title>Frame</title>
@@ -222,7 +315,7 @@
 	<g id="sheet-actuators" class="sheet" data-name="Actuators" transform="translate(0 900)">
 		<rect width="1600" height="900" fill="#f4f3eb" />
 		<g class="label">
-			<text x="80" y="70" font-size="16" font-weight="700" letter-spacing="1.5">CAT FLAP: ACTUATORS</text>
+			<text class="sheet-title" x="80" y="70" font-size="16" font-weight="700" letter-spacing="1.5">CAT FLAP: ACTUATORS</text>
 		</g>
 		<use id="variant-1-baseline" href="#gate-baseline" x="0" y="0" width="1600" height="900" />
 		<g class="hover-target" tabindex="0" role="group" aria-label="Frame">
@@ -275,21 +368,21 @@
 		</g>
 		<g id="variant-1-layers" data-variant="1" aria-label="Variant 1 hardware layers">
 			<g id="variant-1-actuation" data-layer="actuation" aria-label="Actuation layer">
-				<!-- Centred in the 30 mm side rails, pulling rod down, extended tip 12 mm above frame bottom edge. -->
-				<use id="solenoid-left" href="#hs0530b-front" transform="translate(250 646)" />
-				<use id="solenoid-right" href="#hs0530b-front" transform="translate(640 646)" />
+				<!-- Shifted 5 mm inboard to leave room for the screw bosses; pulling rod down, extended tip 12 mm above frame bottom edge. -->
+				<use id="solenoid-left" href="#hs0530b-front" transform="translate(260 646)" />
+				<use id="solenoid-right" href="#hs0530b-front" transform="translate(630 646)" />
 
 				<g class="hover-target" tabindex="0" role="group" aria-label="Left HS-0530B solenoid">
 					<title>HS-0530B solenoid (left)</title>
-					<rect class="hover-hit" x="235" y="509.6" width="30" height="136.4" />
-					<rect class="hover-outline" x="235" y="509.6" width="30" height="136.4" />
-					<text class="hover-label light" x="250" y="500" text-anchor="middle">SOLENOID</text>
+					<rect class="hover-hit" x="245" y="509.6" width="30" height="136.4" />
+					<rect class="hover-outline" x="245" y="509.6" width="30" height="136.4" />
+					<text class="hover-label light" x="260" y="500" text-anchor="middle">SOLENOID</text>
 				</g>
 				<g class="hover-target" tabindex="0" role="group" aria-label="Right HS-0530B solenoid">
 					<title>HS-0530B solenoid (right)</title>
-					<rect class="hover-hit" x="625" y="509.6" width="30" height="136.4" />
-					<rect class="hover-outline" x="625" y="509.6" width="30" height="136.4" />
-					<text class="hover-label light" x="640" y="500" text-anchor="middle">SOLENOID</text>
+					<rect class="hover-hit" x="615" y="509.6" width="30" height="136.4" />
+					<rect class="hover-outline" x="615" y="509.6" width="30" height="136.4" />
+					<text class="hover-label light" x="630" y="500" text-anchor="middle">SOLENOID</text>
 				</g>
 
 				<g class="dimensions label" font-size="10" font-weight="600" pointer-events="none">
@@ -306,57 +399,57 @@
 					<path class="dimension" d="M95 509.6V646 M89 509.6H101 M89 646H101" />
 					<text x="87" y="577.8" text-anchor="middle" transform="rotate(-90 87 577.8)">68.2 mm extended</text>
 
-					<path class="extension" d="M245 670V690 M255 670V690" />
-					<path class="dimension" d="M245 690H255 M245 684V696 M255 684V696" />
-					<text x="262" y="694">Ø5 mm rod</text>
+					<path class="extension" d="M255 670V690 M265 670V690" />
+					<path class="dimension" d="M255 690H265 M255 684V696 M265 684V696" />
+					<text x="272" y="694">Ø5 mm rod</text>
 
-					<path class="extension" d="M610 670V696 M625 670V696 M655 670V696 M670 670V696" />
-					<path class="dimension" d="M610 690H670 M610 684V696 M625 684V696 M655 684V696 M670 684V696" />
-					<text x="640" y="706" text-anchor="middle">15 mm</text>
-					<text x="617.5" y="718" text-anchor="middle">7.5 mm</text>
-					<text x="662.5" y="718" text-anchor="middle">7.5 mm</text>
+					<path class="extension" d="M615 670V696 M645 670V696" />
+					<path class="dimension" d="M610 690H670 M610 684V696 M615 684V696 M645 684V696 M670 684V696" />
+					<text x="630" y="706" text-anchor="middle">15 mm</text>
+					<text x="612.5" y="718" text-anchor="middle">2.5 mm</text>
+					<text x="657.5" y="718" text-anchor="middle">12.5 mm</text>
 
 					<path class="extension" d="M670 646H696 M670 670H696" />
 					<path class="dimension" d="M690 646V670 M684 646H696 M684 670H696" />
 					<text x="700" y="662">tunable offset</text>
 				</g>
 
-				<!-- Top view: y matches front-view x, so solenoids sit at y=250 and y=640. -->
+				<!-- Top view: y matches front-view x, so solenoids sit at y=260 and y=630. -->
 				<!-- Linkage parts that sit below the solenoids, drawn first so the solenoids cover them. -->
 				<g id="linkage-top-view-below-solenoids">
 					<g fill="#e3e6e8" stroke="#263633" stroke-width="1" stroke-dasharray="3 2">
-						<rect x="940" y="250" width="40" height="8" />
-						<rect x="960" y="632" width="40" height="8" />
+						<rect x="940" y="260" width="40" height="8" />
+						<rect x="960" y="622" width="40" height="8" />
 					</g>
-					<path d="M961 254V443" fill="none" stroke="#e8590c" stroke-width="1.5" />
-					<path d="M979 636V447" fill="none" stroke="#e8590c" stroke-width="1.5" stroke-dasharray="4 2" />
+					<path d="M961 264V443" fill="none" stroke="#e8590c" stroke-width="1.5" />
+					<path d="M979 626V447" fill="none" stroke="#e8590c" stroke-width="1.5" stroke-dasharray="4 2" />
 				</g>
-				<use id="solenoid-left-top" href="#hs0530b-top" transform="translate(961 250)" />
-				<use id="solenoid-right-top" href="#hs0530b-top" transform="translate(979 640)" />
+				<use id="solenoid-left-top" href="#hs0530b-top" transform="translate(961 260)" />
+				<use id="solenoid-right-top" href="#hs0530b-top" transform="translate(979 630)" />
 
 				<g class="hover-target" tabindex="0" role="group" aria-label="Left HS-0530B solenoid, top view">
 					<title>HS-0530B solenoid (left, top view)</title>
-					<rect class="hover-hit" x="947.6" y="235" width="26.8" height="30" />
-					<rect class="hover-outline" x="947.6" y="235" width="26.8" height="30" />
+					<rect class="hover-hit" x="947.6" y="245" width="26.8" height="30" />
+					<rect class="hover-outline" x="947.6" y="245" width="26.8" height="30" />
 				</g>
 				<g class="hover-target" tabindex="0" role="group" aria-label="Right HS-0530B solenoid, top view">
 					<title>HS-0530B solenoid (right, top view)</title>
-					<rect class="hover-hit" x="965.6" y="625" width="26.8" height="30" />
-					<rect class="hover-outline" x="965.6" y="625" width="26.8" height="30" />
+					<rect class="hover-hit" x="965.6" y="615" width="26.8" height="30" />
+					<rect class="hover-outline" x="965.6" y="615" width="26.8" height="30" />
 				</g>
 
 				<g class="dimensions label" font-size="10" font-weight="600" pointer-events="none">
-					<path class="extension" d="M940 194V220 M947.6 194V220 M974.4 194V220 M1000 194V220" />
+					<path class="extension" d="M947.6 194V220 M974.4 194V220" />
 					<path class="dimension" d="M940 200H1000 M940 194V206 M947.6 194V206 M974.4 194V206 M1000 194V206" />
 					<text x="961" y="189" text-anchor="middle">13.4 mm</text>
 					<text x="936" y="204" text-anchor="end">3.8 mm</text>
 					<text x="1004" y="204">12.8 mm</text>
 
-					<path class="extension" d="M914 220H940 M914 235H940 M914 265H940 M914 280H940" />
-					<path class="dimension" d="M920 220V280 M914 220H926 M914 235H926 M914 265H926 M914 280H926" />
-					<text x="910" y="231" text-anchor="end">7.5 mm</text>
-					<text x="910" y="254" text-anchor="end">15 mm</text>
-					<text x="910" y="276" text-anchor="end">7.5 mm</text>
+					<path class="extension" d="M914 245H940 M914 275H940" />
+					<path class="dimension" d="M920 220V280 M914 220H926 M914 245H926 M914 275H926 M914 280H926" />
+					<text x="910" y="236" text-anchor="end">12.5 mm</text>
+					<text x="910" y="264" text-anchor="end">15 mm</text>
+					<text x="910" y="281" text-anchor="end">2.5 mm</text>
 				</g>
 
 				<!-- Side view: left solenoid on the front line lane, right on the back lane. -->
@@ -371,7 +464,7 @@
 				</g>
 
 				<g class="dimensions label" font-size="10" font-weight="600" pointer-events="none">
-					<path class="extension" d="M1280 670V696 M1287.6 670V696 M1314.4 670V696 M1332.4 670V696 M1340 670V696" />
+					<path class="extension" d="M1287.6 670V696 M1314.4 670V696 M1332.4 670V696" />
 					<path class="dimension" d="M1280 690H1314.4 M1332.4 690H1340 M1280 684V696 M1287.6 684V696 M1314.4 684V696 M1332.4 684V696 M1340 684V696" />
 					<text x="1301" y="708" text-anchor="middle">13.4 mm</text>
 					<text x="1276" y="694" text-anchor="end">3.8 mm</text>
@@ -386,16 +479,23 @@
 					<!-- Guide bore: 4.4 mm hole in the 1.5 mm top skin, 6.6 mm bore for the 6 mm latch piston, 1.5 mm line hole in the spring floor. -->
 					<path d="M440.6 610H449.4V613H451.6V654H446.5V657H443.5V654H438.4V613H440.6Z" fill="#1f2a27" />
 					<g fill="#e3e6e8" stroke="#263633" stroke-width="1">
-						<circle cx="254" cy="662" r="4" />
+						<circle cx="264" cy="662" r="4" />
 						<circle cx="439" cy="662" r="4" />
-						<circle cx="636" cy="662" r="4" stroke-dasharray="2 1.5" />
+						<circle cx="626" cy="662" r="4" stroke-dasharray="2 1.5" />
 						<circle cx="451" cy="662" r="4" stroke-dasharray="2 1.5" />
 					</g>
 					<rect x="441" y="590" width="8" height="23" fill="#c9cfd2" stroke="#263633" stroke-width="1" />
 					<rect x="439" y="613" width="12" height="8" fill="#c9cfd2" stroke="#263633" stroke-width="1" />
 					<use href="#spring-04x5" transform="translate(445 621)" stroke="#f4f3eb" />
-					<path d="M250 640V662A4 4 0 0 0 254 666H439A4 4 0 0 0 443 662L445 657V621" fill="none" stroke="#e8590c" stroke-width="1.5" />
-					<path d="M640 640V662A4 4 0 0 1 636 666H451A4 4 0 0 1 447 662L445 657V621" fill="none" stroke="#e8590c" stroke-width="1.5" stroke-dasharray="4 2" />
+					<path d="M260 640V662A4 4 0 0 0 264 666H439A4 4 0 0 0 443 662L445 657V621" fill="none" stroke="#e8590c" stroke-width="1.5" />
+					<path d="M630 640V662A4 4 0 0 1 626 666H451A4 4 0 0 1 447 662L445 657V621" fill="none" stroke="#e8590c" stroke-width="1.5" stroke-dasharray="4 2" />
+				</g>
+
+				<g id="pull-cord-label" class="dimensions label" font-size="10" font-weight="600" pointer-events="none">
+					<circle cx="340" cy="666" r="2" fill="#000000" />
+					<path d="M340 666L360 714H505" fill="none" stroke="#000000" stroke-width="1.2" />
+					<text x="495" y="698" text-anchor="end" font-weight="400">braided PE fishing line</text>
+					<text x="495" y="710" text-anchor="end" font-weight="400">latch pull cord, &#216;0.55 mm</text>
 				</g>
 
 				<g id="linkage-side-view">
@@ -449,22 +549,18 @@
 				</g>
 				<g class="hover-target" tabindex="0" role="group" aria-label="Guide pins, 4 by 20 millimetres">
 					<title>Guide pins (fishing line 90 degree bends)</title>
-					<path class="hover-hit" d="M250 658h8v8h-8Z M435 658h8v8h-8Z M447 658h8v8h-8Z M632 658h8v8h-8Z" />
-					<path class="hover-outline" d="M250 658h8v8h-8Z M435 658h8v8h-8Z M447 658h8v8h-8Z M632 658h8v8h-8Z" />
+					<path class="hover-hit" d="M260 658h8v8h-8Z M435 658h8v8h-8Z M447 658h8v8h-8Z M622 658h8v8h-8Z" />
+					<path class="hover-outline" d="M260 658h8v8h-8Z M435 658h8v8h-8Z M447 658h8v8h-8Z M622 658h8v8h-8Z" />
 					<text class="hover-label light" x="340" y="652" text-anchor="middle">GUIDE PINS</text>
 				</g>
 
 				<g class="dimensions label" font-size="10" font-weight="600" pointer-events="none">
-					<path class="extension" d="M1280 194V220 M1301 194V220 M1319 194V220 M1340 194V220" />
+					<path class="extension" d="M1301 194V220 M1319 194V220" />
 					<path class="dimension" d="M1280 200H1340 M1280 194V206 M1301 194V206 M1319 194V206 M1340 194V206" />
 					<text x="1290.5" y="189" text-anchor="middle">10.5</text>
 					<text x="1310" y="189" text-anchor="middle">9</text>
 					<text x="1329.5" y="189" text-anchor="middle">10.5</text>
 					<text x="1310" y="175" text-anchor="middle">latch lines (mm)</text>
-
-					<path class="extension" d="M1323 590H1366 M1310 610H1366" />
-					<path class="dimension" d="M1360 590V610 M1354 590H1366 M1354 610H1366" />
-					<text x="1370" y="603">10 mm lock travel</text>
 
 					<path class="extension" d="M1340 662H1366 M1340 670H1366" />
 					<path class="dimension" d="M1360 662V670 M1354 662H1366 M1354 670H1366" />
@@ -508,7 +604,6 @@
 					</g>
 
 					<g class="dimensions label" font-size="10" font-weight="600" pointer-events="none">
-						<path class="extension" d="M270 284V194 M620 284V194" />
 						<path class="dimension" d="M270 200H620 M270 194V206 M620 194V206" />
 						<text x="445" y="194" text-anchor="middle">rod &#216;3 &#215; 175 mm</text>
 
@@ -518,7 +613,7 @@
 						<text x="812" y="485">189 mm</text>
 						<text x="812" y="296" fill="#000000">pivot axis</text>
 
-						<circle cx="272" cy="294" r="3" fill="#000000" />
+						<circle cx="272" cy="294" r="2" fill="#000000" />
 						<path d="M272 294L210 322H109" fill="none" stroke="#000000" stroke-width="1.2" />
 						<text x="200" y="306" text-anchor="end" font-weight="400">693ZZ bearings</text>
 						<text x="200" y="318" text-anchor="end" font-weight="400">3 &#215; 8 &#215; 4 mm</text>
@@ -527,7 +622,7 @@
 						<path class="dimension" d="M1266 280V292 M1260 280H1272 M1260 292H1272" />
 						<text x="1256" y="290" text-anchor="end">6 mm</text>
 						<text x="1270" y="322" text-anchor="end">&#177;90&#176; swing</text>
-						<circle cx="1304" cy="298" r="3" fill="#000000" />
+						<circle cx="1304" cy="298" r="2" fill="#000000" />
 						<path d="M1304 298L1270 338H1166" fill="none" stroke="#000000" stroke-width="1.2" />
 						<text x="1270" y="334" text-anchor="end" font-weight="400">knuckle &#216;7 mm</text>
 					</g>
@@ -553,7 +648,7 @@
 	<g id="sheet-pcb" class="sheet" data-name="PCB" transform="translate(0 1800)">
 		<rect width="1600" height="900" fill="#f4f3eb" />
 		<g class="label">
-			<text x="80" y="70" font-size="16" font-weight="700" letter-spacing="1.5">CAT FLAP: PCB</text>
+			<text class="sheet-title" x="80" y="70" font-size="16" font-weight="700" letter-spacing="1.5">CAT FLAP: PCB</text>
 		</g>
 		<use id="pcb-sheet-baseline" href="#gate-baseline" x="0" y="0" width="1600" height="900" />
 		<g class="hover-target" tabindex="0" role="group" aria-label="Frame">
@@ -610,17 +705,12 @@
 			<g id="pcb-mount" data-layer="electronics" aria-label="PCB layer">
 				<g id="pcb-front-view">
 					<rect x="280" y="614" width="330" height="42" rx="3" fill="#3f8f5a" stroke="#1e5a36" stroke-width="1" />
-					<g fill="none" stroke="#b6f0c4" stroke-width="1" stroke-dasharray="4 2">
-						<rect x="283" y="617" width="148" height="36" />
-						<rect x="459" y="617" width="148" height="36" />
-					</g>
-					<path d="M440.6 610H449.4V613H451.6V654H446.5V657H443.5V654H438.4V613H440.6Z" fill="#1f2a27" opacity="0.6" />
 					<rect x="434" y="614" width="22" height="42" fill="url(#keepout-hatch)" stroke="#b03a2e" stroke-width="1" />
-					<g class="label" font-size="10" font-weight="700" text-anchor="middle" pointer-events="none">
-						<text x="357" y="632" fill="#f4f3eb">COMPONENTS OK</text>
-						<text x="357" y="645" fill="#f4f3eb" font-weight="600">both sides, &#8804; 12.2 mm tall</text>
-						<text x="533" y="632" fill="#f4f3eb">COMPONENTS OK</text>
-						<text x="533" y="645" fill="#f4f3eb" font-weight="600">both sides, &#8804; 12.2 mm tall</text>
+					<g id="pcb-mounting-holes" fill="#f4f3eb" stroke="#000000" stroke-width="0.8" aria-label="Four 3.2 millimetre mounting holes for M3 screws, centres 3 millimetres from adjacent edges">
+						<circle cx="286" cy="620" r="3.2" />
+						<circle cx="604" cy="620" r="3.2" />
+						<circle cx="286" cy="650" r="3.2" />
+						<circle cx="604" cy="650" r="3.2" />
 					</g>
 				</g>
 
@@ -630,10 +720,11 @@
 						<rect x="1311.6" y="614" width="24.4" height="42" />
 					</g>
 					<g fill="url(#keepout-hatch)" stroke="#b03a2e" stroke-width="1.2" stroke-dasharray="5 3">
-						<rect x="1294.4" y="610" width="13.2" height="47" />
-						<rect x="1312.4" y="610" width="13.2" height="47" />
+						<rect x="1294.4" y="614" width="13.2" height="42" />
+						<rect x="1312.4" y="614" width="13.2" height="42" />
 					</g>
 					<rect x="1308.4" y="614" width="3.2" height="42" fill="#3f8f5a" stroke="#1e5a36" stroke-width="0.5" />
+					<path d="M1308.4 616.8H1311.6 M1308.4 623.2H1311.6 M1308.4 646.8H1311.6 M1308.4 653.2H1311.6" fill="none" stroke="#000000" stroke-width="0.8" stroke-dasharray="2 1" />
 				</g>
 
 				<!-- Top view: board is hidden under the gate; component zones either side, keep-out band at the latch bores. -->
@@ -646,6 +737,7 @@
 					</g>
 					<rect x="944" y="434" width="52" height="22" fill="url(#keepout-hatch)" stroke="#b03a2e" stroke-width="1" />
 					<rect x="968.4" y="280" width="3.2" height="330" fill="#3f8f5a" stroke="#1e5a36" stroke-width="0.5" stroke-dasharray="3 2" />
+					<path d="M968.4 282.8H971.6 M968.4 289.2H971.6 M968.4 600.8H971.6 M968.4 607.2H971.6" fill="none" stroke="#000000" stroke-width="0.8" stroke-dasharray="2 1" />
 					<g fill="none" stroke="#263633" stroke-width="1" stroke-dasharray="2 1.5">
 						<circle cx="961" cy="445" r="6.6" />
 						<circle cx="979" cy="445" r="6.6" />
@@ -653,20 +745,26 @@
 				</g>
 
 				<g class="dimensions label" font-size="10" font-weight="600" pointer-events="none">
-					<path class="extension" d="M280 670V730 M434 670V696 M456 670V696 M610 670V730" />
-					<path class="dimension" d="M280 690H610 M280 684V696 M434 684V696 M456 684V696 M610 684V696" />
-					<text x="357" y="706" text-anchor="middle">77 mm</text>
-					<text x="445" y="706" text-anchor="middle">11 mm</text>
-					<text x="533" y="706" text-anchor="middle">77 mm</text>
-					<path class="dimension" d="M280 724H610 M280 718V730 M610 718V730" />
-					<text x="445" y="740" text-anchor="middle">PCB W: 165 mm</text>
+					<path class="extension" d="M280 656V683 M286 653.2V683 M280 656H257 M282.8 650H257" />
+					<path class="dimension" d="M280 680H286 M280 677V683 M286 677V683 M260 650V656 M257 650H263 M257 656H263" />
+					<text x="283" y="694" text-anchor="middle">3 mm</text>
+					<text x="250" y="656" text-anchor="end">3 mm</text>
+					<circle cx="280" cy="620" r="2" fill="#000000" />
+					<path d="M280 620L198 600H80" fill="none" stroke="#000000" stroke-width="1.2" />
+					<text x="188" y="596" text-anchor="end" font-weight="400">4 holes, &#216;3.2 mm (M3)</text>
+					<path class="dimension" d="M280 706H610 M280 700V712 M434 700V712 M456 700V712 M610 700V712" />
+					<text x="357" y="722" text-anchor="middle">77 mm</text>
+					<text x="445" y="722" text-anchor="middle">11 mm</text>
+					<text x="533" y="722" text-anchor="middle">77 mm</text>
+					<path class="dimension" d="M280 740H610 M280 734V746 M610 734V746" />
+					<text x="445" y="756" text-anchor="middle">PCB W: 165 mm</text>
 
 					<path class="extension" d="M610 614H706 M610 656H706" />
 					<path class="dimension" d="M700 614V656 M694 614H706 M694 656H706" />
 					<text x="708" y="639">21 mm</text>
 				</g>
 
-				<g class="label" font-size="11" pointer-events="none">
+				<g class="legend label" font-size="11" pointer-events="none">
 					<rect x="80" y="786" width="18" height="12" fill="#8fd19e" fill-opacity="0.5" stroke="#3f8f5a" stroke-dasharray="4 2" />
 					<text x="106" y="796">Components OK (both board faces, max 12.2 mm tall per side)</text>
 					<rect x="80" y="806" width="18" height="12" fill="url(#keepout-hatch)" stroke="#b03a2e" />
@@ -694,7 +792,7 @@
 	<g id="sheet-sensors" class="sheet" data-name="Sensors" transform="translate(0 2700)">
 		<rect width="1600" height="900" fill="#f4f3eb" />
 		<g class="label">
-			<text x="80" y="70" font-size="16" font-weight="700" letter-spacing="1.5">CAT FLAP: SENSORS</text>
+			<text class="sheet-title" x="80" y="70" font-size="16" font-weight="700" letter-spacing="1.5">CAT FLAP: SENSORS</text>
 		</g>
 		<use id="sensor-sheet-baseline" href="#gate-baseline" x="0" y="0" width="1600" height="900" />
 		<g class="hover-target" tabindex="0" role="group" aria-label="Frame">
@@ -752,12 +850,9 @@
 			<g id="sensor-placement" data-layer="sensing" aria-label="Sensor placement layer">
 				<g id="sensors-front-view">
 					<rect x="280" y="614" width="330" height="42" rx="3" fill="#3f8f5a" fill-opacity="0.4" stroke="#1e5a36" stroke-width="1" />
-					<rect x="434" y="614" width="22" height="42" fill="url(#keepout-hatch)" opacity="0.6" />
+					<rect x="434" y="614" width="22" height="42" fill="url(#keepout-hatch)" fill-opacity="0.6" stroke="#b03a2e" stroke-width="1" />
 					<path d="M256 334V614 M634 334V614" fill="none" stroke="#71807a" stroke-width="1" stroke-dasharray="2 3" />
 
-					<g fill="none" stroke="#5f686b" stroke-width="1" stroke-dasharray="3 2">
-						<path d="M336 618C336 611 429 614 429 617 M368 618C368 615 461 614 461 617" stroke="#b87333" />
-					</g>
 					<rect id="camera-connector-front" x="336" y="618" width="32" height="14" rx="1" fill="#f4f3eb" stroke="#263633" stroke-width="0.8" />
 					<path d="M339 620H365" stroke="#5f686b" stroke-width="1.5" />
 
@@ -766,13 +861,13 @@
 						<path d="M634 334L520 435" stroke="#6b2fa3" stroke-width="1.2" stroke-dasharray="2 3" />
 						<path d="M256 374L370 476.4" stroke="#1f7a8c" stroke-width="1.2" stroke-dasharray="2 3" />
 						<path d="M634 374L520 476.4" stroke="#1f7a8c" stroke-width="1.2" stroke-dasharray="2 3" />
-						<g fill="#6b2fa3" stroke="#3d1863" stroke-width="1">
-							<polygon points="264.1,316.7 273.3,325.9 247.9,351.3 238.7,342.1" />
-							<polygon points="625.9,316.7 616.7,325.9 642.1,351.3 651.3,342.1" />
+						<g fill="#6b2fa3" fill-opacity="0.5" stroke="#3d1863" stroke-width="1">
+							<rect x="-6.5" y="-18" width="13" height="36" rx="3" transform="translate(256 334) rotate(45)" />
+							<rect x="-6.5" y="-18" width="13" height="36" rx="3" transform="translate(634 334) rotate(-45)" />
 						</g>
-						<g fill="#1f7a8c" stroke="#0f4752" stroke-width="1">
-							<polygon points="273.3,365.9 264.1,356.7 238.7,382.1 247.9,391.3" />
-							<polygon points="616.7,365.9 625.9,356.7 651.3,382.1 642.1,391.3" />
+						<g fill="#1f7a8c" fill-opacity="0.5" stroke="#0f4752" stroke-width="1">
+							<rect x="-6.5" y="-18" width="13" height="36" rx="3" transform="translate(256 374) rotate(45)" />
+							<rect x="-6.5" y="-18" width="13" height="36" rx="3" transform="translate(634 374) rotate(-45)" />
 						</g>
 					</g>
 
@@ -784,80 +879,100 @@
 						<ellipse cx="400" cy="590" rx="4" ry="2" />
 						<ellipse cx="490" cy="590" rx="4" ry="2" />
 					</g>
+					<!-- Silhouette of the printed camera cover behind the flap: peaks at the centre (18.8 units above the floor) and falls away gradually. -->
+					<path id="camera-protrusion-front" d="M414 610C426 610 432 591.2 445 591.2C458 591.2 464 610 476 610Z" fill="#5f686b" fill-opacity="0.05" stroke="#5f686b" stroke-width="1" stroke-dasharray="3 2" stroke-linejoin="round" />
 					<g fill="#000000">
-						<circle cx="400" cy="597" r="3" />
-						<circle cx="490" cy="597" r="3" />
+						<circle cx="490" cy="590" r="2" />
 					</g>
-					<rect x="397" y="615" width="6" height="3" fill="#1b1b1b" />
-					<rect x="487" y="615" width="6" height="3" fill="none" stroke="#1b1b1b" stroke-width="0.8" stroke-dasharray="1.5 1" />
-
-					<g class="label" font-size="10" font-weight="700" pointer-events="none">
-						<text x="400" y="630" text-anchor="middle" fill="#f4f3eb">HALL</text>
-						<text x="490" y="630" text-anchor="middle" fill="#f4f3eb">HALL</text>
-					</g>
+					<!-- A3144 in TO-92: flat sensing face towards the flap magnet, domed back into the board; 5 mm wide. -->
+					<path d="M395 615H405A5 5 0 0 1 395 615Z" fill="#1e5a36" stroke="#000000" stroke-width="1.2" stroke-linejoin="round" />
+					<path d="M485 615H495A5 5 0 0 1 485 615Z" fill="#1e5a36" stroke="#000000" stroke-width="1.2" stroke-linejoin="round" />
 				</g>
 
 				<g id="sensors-side-view">
-					<g id="camera-fov-side" aria-label="Illustrative camera field of view" pointer-events="none">
-						<title>Illustrative camera field of view toward the flap; angle depends on the selected camera</title>
-						<path d="M1442 615L1288 492L1254 588Z" fill="#5f686b" fill-opacity="0.08" />
-						<path d="M1288 492L1442 615L1254 588" fill="none" stroke="#5f686b" stroke-width="1.2" stroke-dasharray="4 3" />
+					<g id="camera-fov-side" aria-label="Illustrative camera field of view" opacity="0.6" pointer-events="none">
+						<title>Illustrative camera field of view into the tunnel; angle depends on the selected camera</title>
+						<path d="M1442 599.3L1498.6 542.7L1462.7 522Z" fill="#5f686b" fill-opacity="0.08" />
+						<path d="M1498.6 542.7L1442 599.3L1462.7 522" fill="none" stroke="#5f686b" stroke-width="1.2" stroke-dasharray="4 3" />
 					</g>
-					<path d="M1294 334L1204.4 435" stroke="#6b2fa3" stroke-width="1.2" stroke-dasharray="2 3" />
-					<path d="M1326 374L1415.6 476.4" stroke="#1f7a8c" stroke-width="1.2" stroke-dasharray="2 3" />
-					<polygon points="1282.7,316.7 1305.3,325.9 1305.3,351.3 1282.7,342.1" fill="#6b2fa3" stroke="#3d1863" stroke-width="1" />
-					<polygon points="1314.7,365.9 1337.3,356.7 1337.3,382.1 1314.7,391.3" fill="#1f7a8c" stroke="#0f4752" stroke-width="1" />
-					<path d="M1450 616.95H1340L1316.6 623.95" fill="none" stroke="#b87333" stroke-width="5.6" stroke-linecap="round" stroke-linejoin="round" />
-					<g fill="none" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round">
-						<path d="M1450 614.7H1340L1316.6 621.7" stroke="#8f5426" />
-						<path d="M1450 616.2H1340L1316.6 623.2" stroke="#d9a16a" />
-						<path d="M1450 617.7H1340L1316.6 624.7" stroke="#8f5426" />
-						<path d="M1450 619.2H1340L1316.6 626.2" stroke="#d9a16a" />
+					<path d="M1298 334L1208.4 435" stroke="#6b2fa3" stroke-width="1.2" stroke-dasharray="2 3" />
+					<path d="M1322 374L1411.6 476.4" stroke="#1f7a8c" stroke-width="1.2" stroke-dasharray="2 3" />
+					<path d="M1285.48 317.83L1302.52 324.77Q1305.3 325.9 1305.3 328.9L1305.3 348.3Q1305.3 351.3 1302.52 350.17L1285.48 343.23Q1282.7 342.1 1282.7 339.1L1282.7 319.7Q1282.7 316.7 1285.48 317.83Z" fill="#6b2fa3" fill-opacity="0.5" stroke="#3d1863" stroke-width="1" transform="translate(4 0)" />
+					<path d="M1317.48 364.77L1334.52 357.83Q1337.3 356.7 1337.3 359.7L1337.3 379.1Q1337.3 382.1 1334.52 383.23L1317.48 390.17Q1314.7 391.3 1314.7 388.3L1314.7 368.9Q1314.7 365.9 1317.48 364.77Z" fill="#1f7a8c" fill-opacity="0.5" stroke="#0f4752" stroke-width="1" transform="translate(-4 0)" />
+					<!-- Printed cover (3 mm shell) over the part of the camera that rises above the floor; lens flush with its front face. -->
+					<path id="camera-cover-side" d="M1388 610C1406 610 1408 591.2 1420 591.2C1423 591.2 1426 591.6 1429.9 592.3L1454.1 606.3Q1457.5 607.5 1458 610Z" fill="#d8dfd5" stroke="#354943" stroke-width="1.8" stroke-linejoin="round" />
+					<!-- Cable enters the camera's back connector from the floor channel; concentric strokes give the conductor lines. -->
+					<g id="camera-ribbon-side" opacity="0.6" fill="none" stroke-linejoin="round">
+						<defs><path id="camera-ribbon-side-path" d="M1316.6 623.95L1340 616.95H1437" /></defs>
+						<use href="#camera-ribbon-side-path" stroke="#9aa1a3" stroke-width="5.05" />
+						<use href="#camera-ribbon-side-path" stroke="#ffffff" stroke-width="3.85" />
+						<use href="#camera-ribbon-side-path" stroke="#c9cfd2" stroke-width="3.7" />
+						<use href="#camera-ribbon-side-path" stroke="#ffffff" stroke-width="3.1" />
+						<use href="#camera-ribbon-side-path" stroke="#e3e6e8" stroke-width="1.64" />
+						<use href="#camera-ribbon-side-path" stroke="#ffffff" stroke-width="1.04" />
 					</g>
-					<rect id="camera-body-side" x="1432" y="603" width="20" height="24" rx="1" fill="#9aa1a3" stroke="#4d5557" stroke-width="1" />
-					<circle id="camera-lens-side" cx="1442" cy="615" r="8" fill="#b8bec0" stroke="#4d5557" stroke-width="0.8" />
-					<circle cx="1442" cy="615" r="6.5" fill="#101820" />
-					<circle cx="1440" cy="613" r="1" fill="#d7dcdf" />
+					<!-- Edge-on camera: lens axis 60 deg above horizontal pointing down the tunnel (+x); origin at the lens front. -->
+					<g id="camera-side" transform="translate(1442 599.3) rotate(120)">
+						<rect id="camera-lens-side" x="0" y="-8" width="12" height="16" fill="#263633" stroke="#5f686b" stroke-width="0.8" />
+						<rect x="-1" y="-6" width="2" height="12" rx="1" fill="#101820" />
+						<rect id="camera-body-side" x="12" y="-23" width="3.2" height="46" fill="#3f8f5a" stroke="#1e5a36" stroke-width="0.8" />
+						<rect x="15.2" y="-11" width="3.5" height="22" rx="0.8" fill="#f4f3eb" stroke="#263633" stroke-width="0.8" />
+					</g>
 					<rect x="1311.6" y="618" width="5" height="14" fill="#f4f3eb" stroke="#263633" stroke-width="0.8" />
 					<rect x="1308.4" y="614" width="3.2" height="42" fill="#3f8f5a" stroke="#1e5a36" stroke-width="0.5" />
-					<path d="M1306 606V590A4 2 0 0 1 1314 590V606Z" fill="#b8bec0" stroke="#5f686b" stroke-width="1" />
-					<ellipse cx="1310" cy="590" rx="4" ry="2" fill="#d7dcdf" stroke="#5f686b" stroke-width="0.8" />
 					<rect x="1306.2" y="615" width="2.2" height="5.8" fill="#1b1b1b" />
 					<rect x="1311.6" y="615" width="2.2" height="5.8" fill="#1b1b1b" />
 				</g>
 
 				<!-- Top view: x = depth (side x - 340), y = front-view x. -->
 				<g id="sensors-top-view">
-					<path id="camera-ribbon-top" d="M976.6 336C1038 336 1040 429 1102 429H1110V461H1102C1040 461 1038 368 976.6 368Z" fill="#b87333" fill-opacity="0.9" stroke="#8f5426" stroke-width="1" />
-					<rect id="camera-connector-top" x="971.6" y="336" width="5" height="32" rx="1" fill="#f4f3eb" stroke="#263633" stroke-width="0.8" />
-					<rect id="camera-body-top" x="1092" y="433" width="20" height="24" rx="1" fill="#9aa1a3" stroke="#4d5557" stroke-width="1" />
-					<circle id="camera-lens-top" cx="1102" cy="445" r="8" fill="#b8bec0" stroke="#4d5557" stroke-width="0.8" />
+					<g id="camera-ribbon-top-group" opacity="0.6">
+					<path id="camera-ribbon-top" d="M976.6 352H986C1010 352 1021 445 1054 445H1081" fill="none" stroke="#9aa1a3" stroke-width="24" />
+					<path d="M976.6 352H986C1010 352 1021 445 1054 445H1081" fill="none" stroke="#ffffff" stroke-width="22" />
+					<g id="camera-ribbon-conductors-top" fill="none" stroke-width="0.9" stroke-linecap="round">
+						<path d="M976.6 345.4H986C1017.3 345.4 1028.3 438.4 1054 438.4H1081" stroke="#c9cfd2" />
+						<path d="M976.6 349.8H986C1012.4 349.8 1023.4 442.8 1054 442.8H1081" stroke="#e3e6e8" />
+						<path d="M976.6 354.2H986C1007.6 354.2 1018.6 447.2 1054 447.2H1081" stroke="#c9cfd2" />
+						<path d="M976.6 358.6H986C1002.7 358.6 1013.7 451.6 1054 451.6H1081" stroke="#e3e6e8" />
+					</g>
+					</g>
+					<rect id="camera-connector-top" x="971.6" y="341" width="5" height="22" rx="1" fill="#f4f3eb" stroke="#263633" stroke-width="0.8" />
+					<rect id="camera-body-top" x="1077" y="422" width="50" height="46" rx="2" fill="#3f8f5a" stroke="#1e5a36" stroke-width="1" />
+					<g fill="#f4f3eb" stroke="#c9cfd2" stroke-width="1">
+						<circle cx="1083" cy="428" r="2" />
+						<circle cx="1121" cy="428" r="2" />
+						<circle cx="1083" cy="462" r="2" />
+						<circle cx="1121" cy="462" r="2" />
+					</g>
+					<rect x="1092" y="435" width="20" height="20" rx="1" fill="#1b1b1b" />
+					<rect x="1076" y="434" width="5" height="22" rx="1" fill="#ffffff" stroke="#5f686b" stroke-width="0.8" />
+					<circle id="camera-lens-top" cx="1102" cy="445" r="8" fill="#263633" stroke="#5f686b" stroke-width="0.8" />
 					<circle cx="1102" cy="445" r="6.5" fill="#101820" />
 					<circle cx="1100" cy="443" r="1" fill="#d7dcdf" />
-					<path d="M954 256L864.4 370" stroke="#6b2fa3" stroke-width="1.2" stroke-dasharray="2 3" />
-					<path d="M954 634L864.4 520" stroke="#6b2fa3" stroke-width="1.2" stroke-dasharray="2 3" />
-					<path d="M986 256L1075.6 370" stroke="#1f7a8c" stroke-width="1.2" stroke-dasharray="2 3" />
-					<path d="M986 634L1075.6 520" stroke="#1f7a8c" stroke-width="1.2" stroke-dasharray="2 3" />
-					<g fill="#6b2fa3" stroke="#3d1863" stroke-width="1">
-						<polygon points="942.7,264.1 965.3,273.3 965.3,247.9 942.7,238.7" />
-						<polygon points="942.7,625.9 965.3,616.7 965.3,642.1 942.7,651.3" />
+					<path d="M958 256L868.4 370" stroke="#6b2fa3" stroke-width="1.2" stroke-dasharray="2 3" />
+					<path d="M958 634L868.4 520" stroke="#6b2fa3" stroke-width="1.2" stroke-dasharray="2 3" />
+					<path d="M982 256L1071.6 370" stroke="#1f7a8c" stroke-width="1.2" stroke-dasharray="2 3" />
+					<path d="M982 634L1071.6 520" stroke="#1f7a8c" stroke-width="1.2" stroke-dasharray="2 3" />
+					<g fill="#6b2fa3" fill-opacity="0.5" stroke="#3d1863" stroke-width="1" transform="translate(4 0)">
+						<path d="M945.48 265.23L962.52 272.17Q965.3 273.3 965.3 270.3L965.3 250.9Q965.3 247.9 962.52 246.77L945.48 239.83Q942.7 238.7 942.7 241.7L942.7 261.1Q942.7 264.1 945.48 265.23Z" />
+						<path d="M945.48 624.77L962.52 617.83Q965.3 616.7 965.3 619.7L965.3 639.1Q965.3 642.1 962.52 643.23L945.48 650.17Q942.7 651.3 942.7 648.3L942.7 628.9Q942.7 625.9 945.48 624.77Z" />
 					</g>
-					<g fill="#1f7a8c" stroke="#0f4752" stroke-width="1">
-						<polygon points="974.7,273.3 997.3,264.1 997.3,238.7 974.7,247.9" />
-						<polygon points="974.7,616.7 997.3,625.9 997.3,651.3 974.7,642.1" />
+					<g fill="#1f7a8c" fill-opacity="0.5" stroke="#0f4752" stroke-width="1" transform="translate(-4 0)">
+						<path d="M977.48 272.17L994.52 265.23Q997.3 264.1 997.3 261.1L997.3 241.7Q997.3 238.7 994.52 239.83L977.48 246.77Q974.7 247.9 974.7 250.9L974.7 270.3Q974.7 273.3 977.48 272.17Z" />
+						<path d="M977.48 617.83L994.52 624.77Q997.3 625.9 997.3 628.9L997.3 648.3Q997.3 651.3 994.52 650.17L977.48 643.23Q974.7 642.1 974.7 639.1L974.7 619.7Q974.7 616.7 977.48 617.83Z" />
 					</g>
 				</g>
 
 				<g class="dimensions label" font-size="10" font-weight="600" pointer-events="none">
 					<path class="extension" d="M256 614V736 M280 656V736 M352 630V688 M400 618V688 M490 618V688 M610 656V736 M634 614V736" />
 					<path class="dimension" d="M280 688H610 M280 682V694 M352 682V694 M400 682V694 M490 682V694 M610 682V694 M256 736H280 M256 730V742 M280 730V742 M610 736H634 M610 730V742 M634 730V742" />
-					<text x="280" y="706" text-anchor="middle" font-size="9">0 mm</text>
-					<text x="352" y="706" text-anchor="middle" font-size="9">36 mm</text>
-					<text x="400" y="706" text-anchor="middle" font-size="9">60 mm</text>
-					<text x="490" y="706" text-anchor="middle" font-size="9">105 mm</text>
-					<text x="610" y="706" text-anchor="middle" font-size="9">165 mm</text>
-					<text x="268" y="754" text-anchor="middle" font-size="9">12 mm</text>
-					<text x="622" y="754" text-anchor="middle" font-size="9">12 mm</text>
+					<text x="280" y="706" text-anchor="middle">0 mm</text>
+					<text x="352" y="706" text-anchor="middle">36 mm</text>
+					<text x="400" y="706" text-anchor="middle">60 mm</text>
+					<text x="490" y="706" text-anchor="middle">105 mm</text>
+					<text x="610" y="706" text-anchor="middle">165 mm</text>
+					<text x="268" y="754" text-anchor="middle">12 mm</text>
+					<text x="622" y="754" text-anchor="middle">12 mm</text>
 
 					<path class="extension" d="M164 334H220 M164 374H220 M164 614H220" />
 					<path class="dimension" d="M170 334V614 M164 334H176 M164 374H176 M164 614H176" />
@@ -865,21 +980,50 @@
 					<text x="160" y="378" text-anchor="end">120 mm</text>
 					<text x="160" y="618" text-anchor="end">0 mm</text>
 
-					<path d="M400 597L480 560 M490 597L520 560 M480 560H600" fill="none" stroke="#000000" stroke-width="1.2" />
-					<text x="480" y="528" font-size="11" font-weight="400">2 &#215; cylindrical</text>
-					<text x="480" y="541" font-size="11" font-weight="400">neodymium magnets,</text>
-					<text x="480" y="554" font-size="11" font-weight="400">&#216;4 &#215; 9 mm</text>
+					<path d="M490 590L508 546H604" fill="none" stroke="#000000" stroke-width="1.2" />
+					<text x="508" y="530" font-weight="400">cylindrical magnets</text>
+					<text x="508" y="542" font-weight="400">&#216;4 &#215; 9 mm</text>
 				</g>
 
-				<g class="label" font-size="11" pointer-events="none">
-					<rect x="80" y="780" width="18" height="12" fill="#6b2fa3" />
+				<g id="camera-module-callout" class="dimensions label" font-size="10" font-weight="400" pointer-events="none">
+					<circle cx="1102" cy="428" r="2" fill="#000000" />
+					<path d="M1102 428L1114 388H1196" fill="none" stroke="#000000" stroke-width="1.2" />
+					<text x="1124" y="372">OV5647 camera</text>
+					<text x="1124" y="384">25 &#215; 23 &#215; 9 mm</text>
+				</g>
+
+				<g id="hall-sensor-callout" class="dimensions label" font-size="10" font-weight="400" pointer-events="none">
+					<circle cx="494" cy="617" r="2" fill="#000000" />
+					<path d="M494 617L516 580H600" fill="none" stroke="#000000" stroke-width="1.2" />
+					<text x="524" y="564">hall sensors</text>
+					<text x="524" y="576">A3144</text>
+				</g>
+
+				<g id="camera-connector-callout" class="dimensions label" font-size="10" font-weight="400" pointer-events="none">
+					<circle cx="364" cy="621" r="2" fill="#000000" />
+					<path d="M364 621L350 598H290" fill="none" stroke="#000000" stroke-width="1.2" />
+					<text x="340" y="582" text-anchor="end">camera</text>
+					<text x="340" y="594" text-anchor="end">connector</text>
+				</g>
+
+				<g id="camera-protrusion-callout" class="dimensions label" font-size="10" font-weight="400" pointer-events="none">
+					<circle cx="445" cy="594" r="2" fill="#000000" />
+					<path d="M445 594L425 560H345" fill="none" stroke="#000000" stroke-width="1.2" />
+					<text x="415" y="544" text-anchor="end">camera cover</text>
+					<text x="415" y="556" text-anchor="end">behind flap</text>
+				</g>
+
+				<g id="camera-cover-callout" class="dimensions label" font-size="10" font-weight="400" pointer-events="none">
+					<circle cx="1422" cy="593.5" r="2" fill="#000000" />
+					<path d="M1422 593.5L1418 572H1352" fill="none" stroke="#000000" stroke-width="1.2" />
+					<text x="1408" y="568" text-anchor="end">camera cover</text>
+				</g>
+
+				<g class="legend label" font-size="11" pointer-events="none">
+					<rect x="80" y="780" width="18" height="12" fill="#6b2fa3" fill-opacity="0.5" stroke="#3d1863" />
 					<text x="106" y="790">Outward ToF pair</text>
-					<rect x="80" y="798" width="18" height="12" fill="#1f7a8c" />
+					<rect x="80" y="798" width="18" height="12" fill="#1f7a8c" fill-opacity="0.5" stroke="#0f4752" />
 					<text x="106" y="808">Inward ToF pair</text>
-					<rect x="80" y="816" width="18" height="12" fill="#1b1b1b" />
-					<text x="106" y="826">Hall sensors (front solid, tunnel-side dashed)</text>
-					<rect x="80" y="834" width="18" height="12" fill="#9aa1a3" />
-					<text x="106" y="844">Tunnel camera; 16 mm FFC to PCB</text>
 				</g>
 
 				<g class="hover-target" tabindex="0" role="group" aria-label="Time-of-flight sensors">
@@ -888,7 +1032,7 @@
 					<path class="hover-outline" d="M264.1 316.7L273.3 325.9L247.9 351.3L238.7 342.1Z M625.9 316.7L616.7 325.9L642.1 351.3L651.3 342.1Z M273.3 365.9L264.1 356.7L238.7 382.1L247.9 391.3Z M616.7 365.9L625.9 356.7L651.3 382.1L642.1 391.3Z" />
 				</g>
 				<g class="hover-target" tabindex="0" role="group" aria-label="Hall sensors">
-					<title>Hall sensors (SOT-23) with flap magnets</title>
+					<title>Hall sensors (A3144, TO-92) with flap magnets</title>
 					<path class="hover-hit" d="M394 598h12v22h-12Z M484 598h12v22h-12Z" />
 					<path class="hover-outline" d="M394 598h12v22h-12Z M484 598h12v22h-12Z" />
 				</g>
@@ -1012,16 +1156,19 @@
 					const sheet = sheets[index];
 					sheet.setAttribute("transform", folded ? "translate(0 0)" : originalTransforms[index]);
 					sheet.style.display = layers[index].visible ? "" : "none";
-					sheet.style.opacity = folded ? String(weights[index] / 100) : "1";
-					sheet.querySelectorAll(".dimensions").forEach(element => {
-						const measurementOpacity = folded ? Math.max(0, Math.min(1, (weights[index] - 75) / 5)) : 1;
-						element.style.display = index === dominant && (!folded || weights[index] >= 75) ? "" : "none";
+					sheet.style.opacity = folded ? String(Math.sin((weights[index] / 100) * Math.PI / 2)) : "1";
+					sheet.querySelectorAll(".dimensions, .legend").forEach(element => {
+						const measurementOpacity = folded ? Math.max(0, Math.min(1, (weights[index] - 50) / 25)) : 1;
+						element.style.display = !folded || (index === dominant && weights[index] > 50) ? "" : "none";
 						element.style.opacity = String(measurementOpacity);
 						element.style.transition = "opacity 40ms linear";
 					});
 					sheet.querySelectorAll(".label").forEach(element => {
-						if (element.classList.contains("dimensions")) return;
+						if (element.classList.contains("dimensions") || element.classList.contains("legend")) return;
 						element.style.display = folded && index !== dominant ? "none" : "";
+					});
+					sheet.querySelectorAll(".sheet-title").forEach(element => {
+						element.style.display = folded ? "none" : "";
 					});
 				}
 				dividers.forEach(divider => { divider.style.display = folded ? "none" : ""; });
